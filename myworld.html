@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My World - Nextup Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container flex-between">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+    <h1 class="logo">Nextup Studio</h1>
+    <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <nav id="nav-menu" class="nav-menu" hidden>
+    <a href="index.html">Home</a>
+    <a href="myworld.html" class="active">My World</a>
+    <a href="addons.html">Addons</a>
+  </nav>
+</header>
+
+<main class="container main-content">
+  <section class="featured-section">
+    <h3>My Minecraft World</h3>
+    <div class="card-detail">
+      <img src="images/myworld-screenshot.jpg" alt="My Minecraft World Screenshot" style="width:100%; max-width:700px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.7);" />
+      <div style="margin-top: 1.5rem;">
+        <p>
+          Welcome to my custom Minecraft world! This world has been meticulously crafted with unique builds, landscapes, and hidden secrets.  
+          Download below to explore and enjoy the experience.
+        </p>
+        <a href="addons/myworld.zip" class="btn" download>Download My World</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-news">
+    <h3>Latest Updates</h3>
+    <ul>
+      <li>Added new secret base in Chapter 3 update.</li>
+      <li>Optimized world size for faster loading.</li>
+      <li>Upcoming mods compatible with this world!</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container flex-between">
+    <p>© 2025 Nextup Studio. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navMenu.hidden = !navMenu.hidden;
+  });
+
+  const toggleBtn = document.getElementById('theme-toggle');
+  const htmlTag = document.documentElement;
+  const sunIconClass = 'fa-sun';
+  const moonIconClass = 'fa-moon';
+
+  function updateIcon() {
+    const icon = toggleBtn.querySelector('i');
+    if (htmlTag.getAttribute('data-theme') === 'dark') {
+      icon.classList.replace(moonIconClass, sunIconClass);
+    } else {
+      icon.classList.replace(sunIconClass, moonIconClass);
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    htmlTag.setAttribute('data-theme', savedTheme);
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+  updateIcon();
+
+  toggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlTag.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    htmlTag.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon();
+  });
+</script>
+
+</body>
+</html>
