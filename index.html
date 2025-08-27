@@ -9,58 +9,90 @@
 </head>
 <body>
 
-  <!-- Dark/Light Mode Toggle Button -->
-  <button id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle Dark/Light Mode" class="theme-toggle">
-    <i class="fas fa-moon"></i>
-  </button>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Nextup Studio</h1>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="myworld.html">My World</a>
+        <a href="addons.html">Addons</a>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
 
-  <main class="container">
-    <header class="main-header">
-      <h1>Nextup Studio - Minecraft Content Hub</h1>
-      <p>Your world of blocks, creations & adventures!</p>
-    </header>
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to Nextup Studio!</h2>
+      <p>Your ultimate Minecraft content hub for worlds, mods, and addons.</p>
+      <a href="myworld.html" class="btn">Download My World</a>
+      <a href="addons.html" class="btn outlined">Explore Addons</a>
+    </div>
+  </section>
 
-    <section id="home">
-      <h2>Welcome to My Minecraft Hub</h2>
-      <p>
-        This website is your destination for Minecraft content including custom worlds, addons, and inspiring builds.
-      </p>
-      <p>
-        Explore the pages below to find world downloads, addons, and much more.
-      </p>
-    </section>
+  <main class="container main-content">
 
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <p>Some inspiring Minecraft builds and screenshots from my creations.</p>
-      <div class="gallery-grid">
-        <img src="https://i.imgur.com/oYbQyX0.jpeg" alt="Minecraft Build 1" />
-        <img src="https://i.imgur.com/OnY1XCW.jpeg" alt="Minecraft Build 2" />
-        <img src="https://i.imgur.com/zqYH3dt.jpeg" alt="Minecraft Build 3" />
+    <section class="featured-section">
+      <h3>Featured Maps</h3>
+      <div class="card-grid">
+        <article class="card">
+          <img src="https://i.imgur.com/oYbQyX0.jpeg" alt="Modern House Map" />
+          <h4>Modern House Map</h4>
+          <p>Version MCPE 1.16.0 - 1.21.101. Explore sleek modern designs and innovative builds.</p>
+          <a class="btn" href="#">Download</a>
+        </article>
+
+        <article class="card">
+          <img src="https://i.imgur.com/OnY1XCW.jpeg" alt="Adventure Forest Map" />
+          <h4>Adventure Forest</h4>
+          <p>A mysterious forest adventure map full of quests and secrets.</p>
+          <a class="btn" href="#">Download</a>
+        </article>
       </div>
     </section>
 
-    <section id="news">
-      <h2>Latest News & Updates</h2>
-      <p>
-        ✨ August 2025: New custom survival world available for download!<br />
-        🔧 Addon Pack v2 released with exciting new mobs and items!<br />
-        🎮 Live stream schedules will be announced soon.
-      </p>
+    <section class="featured-section">
+      <h3>Popular Addons</h3>
+      <div class="card-grid">
+        <article class="card">
+          <img src="https://i.imgur.com/yofQw8O.png" alt="Super Mobs Addon" />
+          <h4>Super Mobs Addon</h4>
+          <p>New boss mobs, custom abilities, and loot. Enhance your gameplay!</p>
+          <a class="btn" href="#">Download</a>
+        </article>
+
+        <article class="card">
+          <img src="https://i.imgur.com/gV1aKrn.png" alt="Realistic Doors Addon" />
+          <h4>Realistic Doors Addon</h4>
+          <p>Variety of doors with animations and custom sounds.</p>
+          <a class="btn" href="#">Download</a>
+        </article>
+      </div>
     </section>
 
-    <section id="community">
-      <h2>Community</h2>
-      <p>Join me on YouTube for gameplay videos, tutorials, and more. Your feedback helps me improve!</p>
-      <a href="https://youtube.com/" class="btn" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+    <section class="latest-news">
+      <h3>Latest News</h3>
+      <ul>
+        <li>August 2025: New custom worlds added for download.</li>
+        <li>Addon Pack v2 released with improved mobs and tools.</li>
+        <li>Join our live streams and giveaways coming soon!</li>
+      </ul>
     </section>
+
   </main>
 
-  <nav class="bottom-nav" aria-label="Primary navigation">
-    <a href="index.html" class="active" aria-current="page">Home</a>
-    <a href="myworld.html">My World</a>
-    <a href="addons.html">Addons</a>
-  </nav>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Nextup Studio. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
