@@ -32,25 +32,26 @@
 
 <main class="container main-content">
   <section class="featured-section">
-    <h3>My Minecraft World</h3>
-    <div class="card-detail">
-      <img src="images/myworld-screenshot.jpg" alt="My Minecraft World Screenshot" style="width:100%; max-width:700px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.7);" />
-      <div style="margin-top: 1.5rem;">
-        <p>
-          Welcome to my custom Minecraft world! This world has been meticulously crafted with unique builds, landscapes, and hidden secrets.  
-          Download below to explore and enjoy the experience.
-        </p>
-        <a href="addons/myworld.zip" class="btn" download>Download My World</a>
-      </div>
+    <h3>My Minecraft World & Updates</h3>
+    <div class="image-gallery-grid">
+      <img src="myworld/1.png" alt="My World Preview 1" />
+      <img src="myworld/2.png" alt="My World Preview 2" />
+      <img src="myworld/3.png" alt="Hidden Waterfall Update Preview 1" />
+      <img src="myworld/4.png" alt="Hidden Waterfall Update Preview 2" />
+      <img src="myworld/5.png" alt="Villager Breeder Update Preview" />
     </div>
+    <p style="margin-top: 1.5rem; font-size: 1.1rem; max-width: 720px;">
+      Download my Minecraft world featuring beautiful biomes and two recent exciting updates: a hidden waterfall with a great treasure and a new villager breeder system.
+    </p>
+    <a href="https://www.mediafire.com/file/dekjjccymuq62vz/My+World.mctemplate/file" target="_blank" rel="noopener" class="btn">Download My World</a>
   </section>
 
   <section class="latest-news">
-    <h3>Latest Updates</h3>
+    <h3>Latest World Updates</h3>
     <ul>
-      <li>Added new secret base in Chapter 3 update.</li>
-      <li>Optimized world size for faster loading.</li>
-      <li>Upcoming mods compatible with this world!</li>
+      <li>New Hidden Waterfall added with secret treasure for adventurous players.</li>
+      <li>Villager Breeder update brings efficient automatic villager farming.</li>
+      <li>Optimizations for smoother gameplay and world loading speed.</li>
     </ul>
   </section>
 </main>
@@ -107,6 +108,27 @@
     updateIcon();
   });
 </script>
+
+<style>
+  .image-gallery-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  
+  .image-gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+  }
+  
+  .image-gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+</style>
 
 </body>
 </html>
