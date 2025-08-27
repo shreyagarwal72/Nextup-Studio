@@ -1,4 +1,3 @@
-/* Root Colors */
 :root {
   --color-bg-light: #f9f9f9;
   --color-text-light: #222;
@@ -15,7 +14,7 @@
   --card-shadow: rgba(0, 0, 0, 0.12);
 }
 
-/* Theme light/dark background & text colors */
+/* Light / Dark theme */
 html[data-theme="light"] {
   background-color: var(--color-bg-light);
   color: var(--color-text-light);
@@ -26,7 +25,7 @@ html[data-theme="dark"] {
   color: var(--color-text-dark);
 }
 
-/* Reset & Body base */
+/* Reset */
 * {
   margin: 0; padding: 0; box-sizing: border-box;
 }
@@ -60,22 +59,26 @@ body {
   top: 0;
   z-index: 1000;
 }
+
 html[data-theme="light"] .site-header {
   background-color: var(--card-bg-light);
   color: var(--color-text-light);
   border-bottom-color: var(--color-primary-blue);
 }
+
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .site-header .logo {
   font-size: 1.8rem;
   font-weight: 700;
   color: inherit;
 }
+
 .site-header .main-nav a {
   color: inherit;
   margin-right: 1.5rem;
@@ -92,9 +95,83 @@ html[data-theme="light"] .site-header {
   background-color: var(--color-primary-green);
   color: white;
 }
+
 html[data-theme="light"] .site-header .main-nav a.active,
 html[data-theme="light"] .site-header .main-nav a:hover {
   background-color: var(--color-primary-blue);
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-right: 1rem;
+}
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Nav menu */
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  transition: max-height 0.3s ease;
+}
+
+.nav-menu a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  display: block;
+}
+
+.nav-menu a.active,
+.nav-menu a:hover {
+  background-color: var(--color-primary-green);
+  color: white;
+}
+
+html[data-theme="light"] .nav-menu a.active,
+html[data-theme="light"] .nav-menu a:hover {
+  background-color: var(--color-primary-blue);
+}
+
+/* Hide nav menu on small screens */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .nav-menu[hidden] {
+    max-height: 0;
+  }
+  .nav-menu:not([hidden]) {
+    max-height: 300px;
+  }
 }
 
 /* Theme toggle button */
@@ -110,7 +187,7 @@ html[data-theme="light"] .site-header .main-nav a:hover {
   color: var(--color-primary-orange);
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   background: url('https://i.imgur.com/g3GdKnv.jpg') no-repeat center/cover;
   color: white;
@@ -129,7 +206,6 @@ html[data-theme="light"] .hero {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
 }
-
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
@@ -165,7 +241,7 @@ html[data-theme="dark"] .main-content h3 {
   border-color: var(--color-primary-blue);
 }
 
-/* Card grid layout */
+/* Card grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
@@ -200,7 +276,7 @@ html[data-theme="light"] .card {
   display: block;
 }
 
-/* Card content */
+/* Card Content */
 .card h4 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -222,20 +298,20 @@ html[data-theme="dark"] .card h4 {
   flex-grow: 1;
 }
 
-/* Buttons in cards */
+/* Buttons */
 .btn {
   background-color: var(--color-primary-green);
   border: none;
-  color: white;
   padding: 0.6rem 1.2rem;
   margin: 0 1rem 1rem;
   border-radius: 6px;
-  cursor: pointer;
+  color: white;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  transition: background-color 0.3s ease;
 }
 .btn:hover {
   background-color: var(--color-primary-orange);
@@ -282,17 +358,27 @@ html[data-theme="light"] .site-footer {
   .container {
     padding: 1rem;
   }
+
   .site-header .container {
     flex-direction: column;
-    align-items: flex-start;
   }
+
   .site-header .main-nav {
     margin-top: 0.7rem;
+    flex-direction: column;
+    width: 100%;
   }
-  .main-content h3 {
-    font-size: 1.5rem;
+
+  .nav-menu {
+    flex-direction: column;
   }
+
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero .btn {
+    margin-bottom: 1rem;
+    display: block;
   }
 }
