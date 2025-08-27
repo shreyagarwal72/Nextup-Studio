@@ -3,82 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nextup Studio - Minecraft Hub</title>
+  <title>Minecraft Addons - Nextup Studio</title>
   <link rel="stylesheet" href="style.css">
-  <script>
-    // Sidebar Toggle Script
-    function toggleMenu() {
-      document.querySelector(".sidebar").classList.toggle("active");
-    }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1>Nextup Studio - Minecraft Content Hub</h1>
-    <p>Your world of blocks, creations & adventures!</p>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <h1>Minecraft Addons Showcase</h1>
+    <p>Custom mobs, items, and features for your Minecraft world!</p>
   </header>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="myworld.html">🌍 My World</a>
-      <a href="addons.html">⚒️ Minecraft Addons</a>
-      <a href="#gallery">🖼️ Gallery</a>
-      <a href="#news">📰 News</a>
-      <a href="#community">👥 Community</a>
-    </nav>
-  </aside>
+  <!-- Hamburger Top Navigation -->
+  <nav class="topnav" id="myTopnav">
+    <a href="index.html">🏠 Home</a>
+    <a href="myworld.html">🌍 My World</a>
+    <a href="addons.html" class="active">⚒️ Addons</a>
+    <a href="index.html#gallery">🖼️ Gallery</a>
+    <a href="index.html#news">📰 News</a>
+    <a href="index.html#community">👥 Community</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </nav>
 
-  <!-- Main Content -->
   <main class="container">
-    <!-- Home Section -->
-    <section id="home">
-      <h2>Welcome to My Minecraft Hub</h2>
+    <section>
+      <h2>Addons List</h2>
       <p>
-        This website is dedicated to my Minecraft creations, builds, and mods. 
-        Whether you’re here to download my world, explore custom addons, or 
-        get inspired from Minecraft content — you’re in the right place!
+        Download and explore my custom Minecraft Bedrock/Java addons. These packs bring new features, mobs, items, and possibilities to your gameplay.
       </p>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <p>Here are some of my favorite builds and screenshots captured in Minecraft.</p>
-      <div class="gallery-grid">
-        <img src="https://i.imgur.com/oYbQyX0.jpeg" alt="Minecraft Build 1">
-        <img src="https://i.imgur.com/OnY1XCW.jpeg" alt="Minecraft Build 2">
-        <img src="https://i.imgur.com/zqYH3dt.jpeg" alt="Minecraft Build 3">
+      <div class="addon-list">
+        <div class="addon-item">
+          <h3>Super Mobs Addon</h3>
+          <ul>
+            <li>New Boss mobs</li>
+            <li>Abilities and custom loot</li>
+          </ul>
+          <a class="btn" href="files/super-mobs.mcaddon" download>Download Addon</a>
+        </div>
+        <div class="addon-item">
+          <h3>Realistic Doors Addon</h3>
+          <ul>
+            <li>Variety of modern & fantasy doors</li>
+            <li>Open/close animations</li>
+          </ul>
+          <a class="btn" href="files/doors-addon.mcaddon" download>Download Addon</a>
+        </div>
+        <div class="addon-item">
+          <h3>Sky Tools Addon</h3>
+          <ul>
+            <li>New tool and weapon set</li>
+            <li>Craftable with rare minerals</li>
+          </ul>
+          <a class="btn" href="files/sky-tools.mcaddon" download>Download Addon</a>
+        </div>
       </div>
     </section>
-
-    <!-- News Section -->
-    <section id="news">
-      <h2>Latest News & Updates</h2>
+    <section>
+      <h2>How to Install</h2>
       <p>
-        ✨ August 2025: My new custom survival world is now available for download!  
-        🔧 Addon Pack v2 released with improved mobs and items!  
-        🎮 Live stream schedules for Nextup Studio will be announced soon.
+        Simply download the <b>.mcaddon</b> file above, then:
       </p>
+      <ol>
+        <li>Open Minecraft Bedrock/PE on your device.</li>
+        <li>Tap the downloaded add-on; import begins automatically.</li>
+        <li>Activate the pack in your world settings under "Behavior Packs" and "Resource Packs".</li>
+      </ol>
     </section>
-
-    <!-- Community Section -->
-    <section id="community">
-      <h2>Community</h2>
-      <p>
-        Join my journey! Connect with me on YouTube, share feedback, 
-        and help me improve addons and builds. Your support means everything.
-      </p>
-      <a class="btn" href="https://youtube.com/" target="_blank">Visit YouTube Channel</a>
+    <section>
+      <h2>Addon Showcase</h2>
+      <p>See screenshots & features from each addon below:</p>
+      <div class="gallery-grid">
+        <img src="https://i.imgur.com/yofQw8O.png" alt="Super Mobs Demo">
+        <img src="https://i.imgur.com/gV1aKrn.png" alt="Doors Addon Demo">
+        <img src="https://i.imgur.com/TRS4p9t.png" alt="Sky Tools Demo">
+      </div>
     </section>
   </main>
-
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Nextup Studio | Minecraft Hub - Built with ❤️ in India</p>
+    <p>© 2025 Nextup Studio | Minecraft Addons Section</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      var nav = document.getElementById("myTopnav");
+      if (nav.className === "topnav") {
+        nav.className += " responsive";
+      } else {
+        nav.className = "topnav";
+      }
+    }
+  </script>
 </body>
 </html>
