@@ -5,122 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nextup Studio - Minecraft Hub</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d0d0d;
-      color: #f5f5f5;
-      line-height: 1.6;
+  <script>
+    // Sidebar Toggle Script
+    function toggleMenu() {
+      document.querySelector(".sidebar").classList.toggle("active");
     }
-
-    header {
-      background: #1f1f1f url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d2/Grass_Block_JE6.png') center/cover;
-      padding: 2rem;
-      text-align: center;
-      border-bottom: 3px solid #4CAF50;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #fff;
-      text-shadow: 2px 2px 5px black;
-    }
-
-    nav {
-      background: #2d2d2d;
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 1.5rem;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #4CAF50;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: #1a1a1a;
-      border-radius: 8px;
-      box-shadow: 0px 3px 8px rgba(0,0,0,0.4);
-    }
-
-    section h2 {
-      margin-bottom: 1rem;
-      color: #4CAF50;
-      border-bottom: 2px solid #4CAF50;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #2d2d2d;
-      color: #aaa;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #4CAF50;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #45a049;
-    }
-  </style>
+  </script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Nextup Studio - Minecraft Content</h1>
+    <h1>Nextup Studio - Minecraft Content Hub</h1>
+    <p>Your world of blocks, creations & adventures!</p>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="myworld.html">My World</a>
-    <a href="addons.html">Minecraft Addons</a>
-  </nav>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="myworld.html">🌍 My World</a>
+      <a href="addons.html">⚒️ Minecraft Addons</a>
+      <a href="#gallery">🖼️ Gallery</a>
+      <a href="#news">📰 News</a>
+      <a href="#community">👥 Community</a>
+    </nav>
+  </aside>
 
-  <div class="container">
+  <!-- Main Content -->
+  <main class="container">
     <!-- Home Section -->
     <section id="home">
       <h2>Welcome to My Minecraft Hub</h2>
       <p>
-        This is my personal Minecraft fan hub where I share content, creations,
-        and addons. Explore my world downloads, cool addons, and stay tuned for
-        updates from Nextup Studio.
-      </p>
-      <p>
-        Whether you're here for inspiration, builds, or gameplay – you're in the
-        right place!
+        This website is dedicated to my Minecraft creations, builds, and mods. 
+        Whether you’re here to download my world, explore custom addons, or 
+        get inspired from Minecraft content — you’re in the right place!
       </p>
     </section>
-  </div>
 
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p>Here are some of my favorite builds and screenshots captured in Minecraft.</p>
+      <div class="gallery-grid">
+        <img src="https://i.imgur.com/oYbQyX0.jpeg" alt="Minecraft Build 1">
+        <img src="https://i.imgur.com/OnY1XCW.jpeg" alt="Minecraft Build 2">
+        <img src="https://i.imgur.com/zqYH3dt.jpeg" alt="Minecraft Build 3">
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+      <h2>Latest News & Updates</h2>
+      <p>
+        ✨ August 2025: My new custom survival world is now available for download!  
+        🔧 Addon Pack v2 released with improved mobs and items!  
+        🎮 Live stream schedules for Nextup Studio will be announced soon.
+      </p>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+      <h2>Community</h2>
+      <p>
+        Join my journey! Connect with me on YouTube, share feedback, 
+        and help me improve addons and builds. Your support means everything.
+      </p>
+      <a class="btn" href="https://youtube.com/" target="_blank">Visit YouTube Channel</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Nextup Studio | Minecraft Content Hub</p>
+    <p>© 2025 Nextup Studio | Minecraft Hub - Built with ❤️ in India</p>
   </footer>
 </body>
 </html>
