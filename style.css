@@ -1,127 +1,57 @@
-/* -------------- Reset & base styles ------------ */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #0d0d0d;
+  background-color: #0d0d0d;
   color: #f5f5f5;
-  line-height: 1.6;
-  display: flex;
   min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* -------------- Sidebar styles ------------ */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 270px;
-  height: 100%;
-  background-color: #222;
-  padding-top: 60px;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
-  z-index: 2000;
-}
-.sidebar.active {
-  transform: translateX(0);
-}
-.sidebar nav a {
-  display: block;
-  padding: 16px 24px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #ccc;
-  border-bottom: 1px solid #444;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-}
-.sidebar nav a:hover,
-.sidebar nav a.active {
-  background: #4caf5060;
-  color: #4CAF50;
-}
-
-/* -------------- Hamburger button ------------ */
-.hamburger {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  width: 36px;
-  height: 30px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  z-index: 3000;
-}
-.hamburger div {
-  height: 4px;
-  background-color: #4CAF50;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  padding-bottom: 70px; /* bottom nav space */
+  line-height: 1.6;
 }
 
-/* Hamburger animation - transform bars into X */
-.hamburger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* -------------- Main content ------------ */
 main.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   flex-grow: 1;
-  padding: 2rem 3rem;
-  margin-left: 0;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: margin-left 0.3s ease;
 }
 
-/* Shift main content right when sidebar visible on wider screens */
-@media (min-width: 769px) {
-  .sidebar {
-    transform: translateX(0);
-    position: relative;
-    width: 270px;
-    box-shadow: none;
-  }
-  .hamburger {
-    display: none;
-  }
-  main.container {
-    margin-left: 270px;
-  }
+header.main-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+header.main-header h1 {
+  font-size: 2.8rem;
+  color: #4caf50;
+  margin-bottom: 0.3rem;
+}
+header.main-header p {
+  color: #ccc;
+  font-size: 1.1rem;
 }
 
-/* -------------- Section styles ------------ */
 section {
-  background: #1a1a1a;
-  border-radius: 8px;
+  background-color: #1a1a1a;
   padding: 2rem;
+  border-radius: 8px;
   margin-bottom: 2.5rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 }
 section h2 {
-  color: #4CAF50;
-  border-bottom: 3px solid #4CAF50;
+  color: #4caf50;
+  border-bottom: 3px solid #4caf50;
   padding-bottom: 6px;
   margin-bottom: 1rem;
   display: inline-block;
 }
 
-/* -------------- Gallery grid ------------ */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -133,43 +63,47 @@ section h2 {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* -------------- Buttons ------------ */
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.3rem;
-  background: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
+  padding: 0.7rem 1.3rem;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 .btn:hover {
-  background: #45a049;
+  background-color: #45a049;
 }
 
-/* -------------- Header inside main ------------ */
-header.main-header {
-  text-align: center;
-  margin-bottom: 3rem;
+/* Bottom navigation bar */
+nav.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  border-top: 3px solid #4caf50;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
 }
-header.main-header h1 {
-  font-size: 2.8rem;
-  color: #4CAF50;
-  margin-bottom: 0.3rem;
-}
-header.main-header p {
+nav.bottom-nav a {
   color: #ccc;
+  font-weight: 600;
   font-size: 1.1rem;
-}
-
-/* -------------- Footer ------------ */
-footer {
+  text-decoration: none;
   text-align: center;
-  padding: 1.5rem;
-  background: #222;
-  color: #aaa;
-  font-size: 0.95rem;
-  margin-top: auto;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  flex-grow: 1;
+  transition: color 0.3s;
+}
+nav.bottom-nav a:hover,
+nav.bottom-nav a.active {
+  color: #4caf50;
+  border-bottom: 3px solid #4caf50;
+  padding-bottom: 4px;
 }
