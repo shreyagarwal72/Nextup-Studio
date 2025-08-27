@@ -1,170 +1,98 @@
-/* Root variables for colors */
-:root {
-  --color-bg-light: #fcfcfc;
-  --color-text-light: #222;
-  --color-bg-dark: #0d0d0d;
-  --color-text-dark: #f5f5f5;
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nextup Studio - Minecraft Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-  --color-primary-green: #4caf50;
-  --color-primary-orange: #ef6c00;
-  --color-primary-blue: #4285f4;
-  --color-primary-red: #e53935;
-}
+  <!-- Dark/Light Mode Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle Dark/Light Mode" class="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
 
-/* Theme-based variables */
-html[data-theme="light"] {
-  background-color: var(--color-bg-light);
-  color: var(--color-text-light);
-}
-html[data-theme="dark"] {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-dark);
-}
+  <main class="container">
+    <header class="main-header">
+      <h1>Nextup Studio - Minecraft Content Hub</h1>
+      <p>Your world of blocks, creations & adventures!</p>
+    </header>
 
-/* Body base styles */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 70px;
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
-  background-color: inherit;
-  color: inherit;
-  margin: 0;
-  padding: 0;
-}
+    <section id="home">
+      <h2>Welcome to My Minecraft Hub</h2>
+      <p>
+        This website is your destination for Minecraft content including custom worlds, addons, and inspiring builds.
+      </p>
+      <p>
+        Explore the pages below to find world downloads, addons, and much more.
+      </p>
+    </section>
 
-/* Main container */
-main.container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  flex-grow: 1;
-}
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p>Some inspiring Minecraft builds and screenshots from my creations.</p>
+      <div class="gallery-grid">
+        <img src="https://i.imgur.com/oYbQyX0.jpeg" alt="Minecraft Build 1" />
+        <img src="https://i.imgur.com/OnY1XCW.jpeg" alt="Minecraft Build 2" />
+        <img src="https://i.imgur.com/zqYH3dt.jpeg" alt="Minecraft Build 3" />
+      </div>
+    </section>
 
-/* Header styles */
-header.main-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-header.main-header h1 {
-  font-size: 2.8rem;
-  color: var(--color-primary-blue);
-  margin-bottom: 0.3rem;
-  transition: color 0.3s;
-}
-header.main-header p {
-  color: currentColor;
-  font-size: 1.1rem;
-}
+    <section id="news">
+      <h2>Latest News & Updates</h2>
+      <p>
+        ✨ August 2025: New custom survival world available for download!<br />
+        🔧 Addon Pack v2 released with exciting new mobs and items!<br />
+        🎮 Live stream schedules will be announced soon.
+      </p>
+    </section>
 
-/* Section styling */
-section {
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-  box-shadow:
-    0 3px 6px rgba(0,0,0,0.2),
-    0 6px 12px rgba(0,0,0,0.15);
-  background-color: rgba(255 255 255 / 0.07);
-  transition: background-color 0.3s;
-}
-html[data-theme="light"] section {
-  background-color: rgba(0 0 0 / 0.05);
-}
+    <section id="community">
+      <h2>Community</h2>
+      <p>Join me on YouTube for gameplay videos, tutorials, and more. Your feedback helps me improve!</p>
+      <a href="https://youtube.com/" class="btn" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+    </section>
+  </main>
 
-/* Section headings with color shifts */
-section h2 {
-  color: var(--color-primary-orange);
-  border-bottom: 3px solid var(--color-primary-orange);
-  padding-bottom: 6px;
-  margin-bottom: 1rem;
-  display: inline-block;
-  transition: color 0.3s, border-color 0.3s;
-}
-html[data-theme="dark"] section h2 {
-  color: var(--color-primary-blue);
-  border-color: var(--color-primary-blue);
-}
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <a href="index.html" class="active" aria-current="page">Home</a>
+    <a href="myworld.html">My World</a>
+    <a href="addons.html">Addons</a>
+  </nav>
 
-/* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.2rem;
-}
-.gallery-grid img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0 0 0 / 0.6);
-  transition: transform 0.3s ease;
-}
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const htmlTag = document.documentElement;
+    const sunIconClass = 'fa-sun';
+    const moonIconClass = 'fa-moon';
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  background-color: var(--color-primary-green);
-  color: #fff;
-  padding: 0.7rem 1.3rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  margin-top: 1rem;
-}
-.btn:hover {
-  background-color: var(--color-primary-orange);
-}
+    function updateIcon() {
+      const icon = toggleBtn.querySelector('i');
+      if (htmlTag.getAttribute('data-theme') === 'dark') {
+        icon.classList.replace(moonIconClass, sunIconClass);
+      } else {
+        icon.classList.replace(sunIconClass, moonIconClass);
+      }
+    }
 
-/* Bottom navigation bar */
-nav.bottom-nav {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(34 34 34 / 0.95);
-  border-top: 3px solid var(--color-primary-blue);
-  display: flex;
-  justify-content: space-around;
-  padding: 0.8rem 0;
-  box-shadow: 0 -4px 10px rgba(0 0 0 / 0.6);
-  z-index: 1000;
-  transition: background-color 0.3s;
-}
-nav.bottom-nav a {
-  color: #ccc;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-decoration: none;
-  text-align: center;
-  flex-grow: 1;
-  transition: color 0.3s, border-bottom-color 0.3s;
-}
-nav.bottom-nav a:hover,
-nav.bottom-nav a.active {
-  color: var(--color-primary-red);
-  border-bottom: 3px solid var(--color-primary-red);
-  padding-bottom: 4px;
-}
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      htmlTag.setAttribute('data-theme', savedTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }
+    updateIcon();
 
-/* Theme toggle button - sun/moon */
-.theme-toggle {
-  position: fixed;
-  top: 12px;
-  right: 18px;
-  z-index: 5000;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-primary-blue);
-  transition: color 0.3s;
-}
-.theme-toggle:hover {
-  color: var(--color-primary-orange);
-}
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlTag.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlTag.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon();
+    });
+  </script>
+</body>
+</html>
