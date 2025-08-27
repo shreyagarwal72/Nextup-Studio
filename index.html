@@ -9,103 +9,120 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Nextup Studio</h1>
-      <nav class="main-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="myworld.html">My World</a>
-        <a href="addons.html">Addons</a>
-      </nav>
-      <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
-        <i class="fas fa-moon"></i>
-      </button>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container flex-between">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+    <h1 class="logo">Nextup Studio</h1>
+    <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Welcome to Nextup Studio!</h2>
-      <p>Your ultimate Minecraft content hub for worlds, mods, and addons.</p>
-      <a href="myworld.html" class="btn">Download My World</a>
-      <a href="addons.html" class="btn outlined">Explore Addons</a>
+  <nav id="nav-menu" class="nav-menu" hidden>
+    <a href="index.html" class="active">Home</a>
+    <a href="myworld.html">My World</a>
+    <a href="addons.html">Addons</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Welcome to Nextup Studio!</h2>
+    <p>Your ultimate Minecraft content hub for worlds, mods, and addons.</p>
+    <a href="myworld.html" class="btn">Download My World</a>
+    <a href="addons.html" class="btn outlined">Explore Addons</a>
+  </div>
+</section>
+
+<main class="container main-content">
+
+  <section class="featured-section">
+    <h3>Featured Content</h3>
+    <div class="card-grid">
+      <article class="card">
+        <img src="https://i.imgur.com/zk1bBFR.jpeg" alt="Custom Survival World" />
+        <h4>Custom Survival World</h4>
+        <p>Explore my custom-built survival world packed with secrets, structures, and adventure-ready terrains.</p>
+        <a class="btn" href="myworld.html">Explore</a>
+      </article>
+
+      <article class="card">
+        <img src="https://i.imgur.com/yofQw8O.png" alt="Super Mobs Addon" />
+        <h4>Super Mobs Addon</h4>
+        <p>Enhance your gameplay with exciting boss mobs and custom abilities designed for Minecraft Bedrock Edition.</p>
+        <a class="btn" href="addons.html">Download</a>
+      </article>
     </div>
   </section>
 
-  <main class="container main-content">
+  <section class="latest-news">
+    <h3>Latest News</h3>
+    <ul>
+      <li>Aug 2025: New custom survival world added for download.</li>
+      <li>Addon Pack v2 released with improved mobs and features.</li>
+      <li>Join live streams and giveaways soon!</li>
+    </ul>
+  </section>
 
-    <section class="featured-section">
-      <h3>Featured Content</h3>
-      <div class="card-grid">
-        <article class="card">
-          <img src="https://i.imgur.com/zk1bBFR.jpeg" alt="Custom Survival World" />
-          <h4>Custom Survival World</h4>
-          <p>Explore my custom-built survival world packed with secrets, structures, and adventure-ready terrains.</p>
-          <a class="btn" href="myworld.html">Explore</a>
-        </article>
+</main>
 
-        <article class="card">
-          <img src="https://i.imgur.com/yofQw8O.png" alt="Super Mobs Addon" />
-          <h4>Super Mobs Addon</h4>
-          <p>Enhance your gameplay with exciting boss mobs and custom abilities designed for Minecraft Bedrock Edition.</p>
-          <a class="btn" href="addons.html">Download</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="latest-news">
-      <h3>Latest News</h3>
-      <ul>
-        <li>Aug 2025: New custom survival world added for download.</li>
-        <li>Addon Pack v2 released with improved mobs and features.</li>
-        <li>Join live streams and giveaways soon!</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Nextup Studio. All rights reserved.</p>
-      <div class="social-icons">
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-      </div>
+<footer class="site-footer">
+  <div class="container flex-between">
+    <p>© 2025 Nextup Studio. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const htmlTag = document.documentElement;
-    const sunIconClass = 'fa-sun';
-    const moonIconClass = 'fa-moon';
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
 
-    function updateIcon() {
-      const icon = toggleBtn.querySelector('i');
-      if (htmlTag.getAttribute('data-theme') === 'dark') {
-        icon.classList.replace(moonIconClass, sunIconClass);
-      } else {
-        icon.classList.replace(sunIconClass, moonIconClass);
-      }
-    }
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navMenu.hidden = !navMenu.hidden;
+  });
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      htmlTag.setAttribute('data-theme', savedTheme);
+  const toggleBtn = document.getElementById('theme-toggle');
+  const htmlTag = document.documentElement;
+  const sunIconClass = 'fa-sun';
+  const moonIconClass = 'fa-moon';
+
+  function updateIcon() {
+    const icon = toggleBtn.querySelector('i');
+    if (htmlTag.getAttribute('data-theme') === 'dark') {
+      icon.classList.replace(moonIconClass, sunIconClass);
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      icon.classList.replace(sunIconClass, moonIconClass);
     }
-    updateIcon();
+  }
 
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlTag.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      htmlTag.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon();
-    });
-  </script>
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    htmlTag.setAttribute('data-theme', savedTheme);
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+  updateIcon();
+
+  toggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlTag.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    htmlTag.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon();
+  });
+</script>
+
 </body>
 </html>
