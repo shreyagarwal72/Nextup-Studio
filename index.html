@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nextup Studio - Minecraft Hub</title>
-<link rel="stylesheet" href="style.css" />
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nextup Studio - Minecraft Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container flex-between">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+    <!-- Hamburger sidebar toggle -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebar">
       <span class="sr-only">Toggle navigation</span>
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
     </button>
     <h1 class="logo">Nextup Studio</h1>
+    <!-- Sun/Moon toggle -->
     <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
       <i class="fas fa-moon"></i>
     </button>
   </div>
+</header>
 
-  <nav id="nav-menu" class="nav-menu" hidden>
+<!-- Sidebar Navigation -->
+<aside id="sidebar" class="sidebar" hidden>
+  <nav class="sidebar-nav">
     <a href="index.html" class="active">Home</a>
     <a href="myworld.html">My World</a>
     <a href="addons.html">Addons</a>
   </nav>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <h2>Welcome to Nextup Studio!</h2>
-    <p>Your ultimate Minecraft content hub for worlds, mods, and addons.</p>
-    <a href="myworld.html" class="btn">Download My World</a>
-    <a href="addons.html" class="btn outlined">Explore Addons</a>
-  </div>
-</section>
+</aside>
 
 <main class="container main-content">
-
-  <section class="featured-section">
-    <h3>My Minecraft World & Updates</h3>
-    <div class="image-gallery-grid">
-      <img src="myworld/1.png" alt="My World Preview 1" />
-      <img src="myworld/2.png" alt="My World Preview 2" />
-      <img src="myworld/3.png" alt="Hidden Waterfall Update Preview 1" />
-      <img src="myworld/4.png" alt="Hidden Waterfall Update Preview 2" />
-      <img src="myworld/5.png" alt="Villager Breeder Update Preview" />
+  <section class="hero">
+    <h2>Welcome to Nextup Studio!</h2>
+    <p>Your professional Minecraft hub for worlds, mods, and addons. Enjoy top-quality content curated for the Bedrock community.</p>
+    <div class="hero-actions">
+      <a href="myworld.html" class="btn">Explore My World</a>
+      <a href="addons.html" class="btn outlined">View Addons</a>
     </div>
-    <p style="margin-top: 1.5rem; font-size: 1.1rem; max-width: 720px;">
-      Download my Minecraft world featuring beautiful biomes and two recent exciting updates: a hidden waterfall with a great treasure and a new villager breeder system.
-    </p>
-    <a href="https://www.mediafire.com/file/dekjjccymuq62vz/My+World.mctemplate/file"
-       target="_blank" rel="noopener" class="btn">Download My World</a>
+  </section>
+  
+  <section class="featured-section">
+    <h3>Showcase</h3>
+    <div class="card-grid">
+      <!-- World Preview Card -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
+             alt="Minecraft World Preview" />
+        <h4>Survival Adventure World</h4>
+        <p>Explore a custom survival map full of landscapes, secrets, and unique builds.</p>
+        <a class="btn" href="myworld.html">More Details</a>
+      </article>
+      <!-- Addon Preview Card -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
+             alt="Minecraft Addon Preview" />
+        <h4>Combat & Actions Addon</h4>
+        <p>Enhance combat, animations, and game actions with this feature-rich mod pack.</p>
+        <a class="btn" href="addons.html">Download Addon</a>
+      </article>
+    </div>
   </section>
 
   <section class="latest-news">
-    <h3>Latest World Updates</h3>
+    <h3>News & Updates</h3>
     <ul>
-      <li>New Hidden Waterfall added with secret treasure for adventurous players.</li>
-      <li>Villager Breeder update brings efficient automatic villager farming.</li>
-      <li>Optimizations for smoother gameplay and world loading speed.</li>
+      <li>Aug 2025: Released Villager Breeder & Hidden Waterfall Updates!</li>
+      <li>Try our new Addons for improved gameplay and UI.</li>
+      <li>Stay tuned for tutorials, contests, and map releases.</li>
     </ul>
   </section>
-
 </main>
 
 <footer class="site-footer">
@@ -80,20 +89,20 @@
 </footer>
 
 <script>
+  // Hamburger sidebar toggle script
   const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
+  const sidebar = document.getElementById('sidebar');
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
     hamburger.setAttribute('aria-expanded', !expanded);
-    navMenu.hidden = !navMenu.hidden;
+    sidebar.hidden = !sidebar.hidden;
   });
 
+  // Sun/Moon theme toggle script
   const toggleBtn = document.getElementById('theme-toggle');
   const htmlTag = document.documentElement;
   const sunIconClass = 'fa-sun';
   const moonIconClass = 'fa-moon';
-
   function updateIcon() {
     const icon = toggleBtn.querySelector('i');
     if (htmlTag.getAttribute('data-theme') === 'dark') {
@@ -102,7 +111,6 @@
       icon.classList.replace(sunIconClass, moonIconClass);
     }
   }
-
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
     htmlTag.setAttribute('data-theme', savedTheme);
@@ -120,27 +128,6 @@
     updateIcon();
   });
 </script>
-
-<style>
-  .image-gallery-grid {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-  
-  .image-gallery-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-  }
-  
-  .image-gallery-grid img:hover {
-    transform: scale(1.05);
-  }
-</style>
 
 </body>
 </html>
