@@ -11,7 +11,7 @@
 <body>
 
 <header class="site-header">
-  <div class="container">
+  <div class="container header-flex">
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebar">
       <span class="sr-only">Toggle navigation</span>
       <div class="bar"></div>
@@ -23,6 +23,11 @@
       <i class="fas fa-moon"></i>
     </button>
   </div>
+  <nav class="main-nav" id="main-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="myworld.html">My World</a>
+    <a href="addons.html">Addons</a>
+  </nav>
 </header>
 
 <aside id="sidebar" class="sidebar" hidden>
@@ -36,8 +41,7 @@
 <main class="container main-content">
   <section class="hero">
     <h2>Welcome to Nextup Studio!</h2>
-    <p>Your hub for Minecraft worlds, maps, and feature-rich addons.<br>
-      Designed for the Bedrock Edition community.</p>
+    <p>Your hub for Minecraft worlds, maps, and feature-rich addons. Designed for the Bedrock Edition community.</p>
     <div class="hero-actions">
       <a href="myworld.html" class="btn">Explore My World</a>
       <a href="addons.html" class="btn outlined">Discover Addons</a>
@@ -75,7 +79,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+  <div class="container footer-flex">
     <p>© 2025 Nextup Studio. All rights reserved.</p>
     <div class="social-icons">
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -86,16 +90,18 @@
 </footer>
 
 <script>
-  // Hamburger sidebar toggle script
+  // Hamburger sidebar toggle
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.getElementById('sidebar');
+  const mainNav = document.getElementById('main-nav');
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
     hamburger.setAttribute('aria-expanded', !expanded);
     sidebar.hidden = !sidebar.hidden;
+    mainNav.classList.toggle('show-nav');
   });
 
-  // Sun/Moon theme toggle script
+  // Sun/Moon theme toggle
   const toggleBtn = document.getElementById('theme-toggle');
   const htmlTag = document.documentElement;
   const sunIconClass = 'fa-sun';
@@ -119,7 +125,6 @@
     htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
   }
   updateIcon();
-
   toggleBtn.addEventListener('click', () => {
     const currentTheme = htmlTag.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
