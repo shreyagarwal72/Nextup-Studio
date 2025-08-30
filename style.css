@@ -12,7 +12,7 @@
   --border-radius: 12px;
 }
 
-/* Hide visually, show only to screen readers */
+/* Accessibility: screen-readers only */
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
@@ -45,7 +45,6 @@ body {
   justify-content: space-between; flex-wrap: wrap;
   gap: 0.7rem;
 }
-
 .site-header {
   background: var(--color-bg-dark);
   color: #fff; padding: 0.8rem 1.1rem 0 1.1rem;
@@ -84,32 +83,21 @@ html[data-theme="light"] .site-header {
   .header-flex { flex-direction: row; }
 }
 @media (max-width: 550px) {
-  .main-nav a { width: 31%; padding: 0.43rem 0.2rem; font-size: 0.99rem; }
-  .main-nav { gap: 0.4rem;}
+  .main-nav a {
+    width: 31%;
+    padding: 0.43rem 0.2rem;
+    font-size: 0.99rem;
+    text-align: center;
+  }
+  .main-nav { gap: 0.4rem; }
 }
 
-/* Hamburger Button */
+/* Hamburger - Display none since no sidebar menu now */
 .hamburger {
-  display: flex; flex-direction: column;
-  width: 30px; height: 22px;
-  background: none; border: none; margin: 0;
-  cursor: pointer; z-index: 101;
+  display: none !important;
 }
-.hamburger .bar {
-  height: 3.4px; width: 100%;
-  background: currentColor; border-radius: 2px;
-  margin-bottom: 5px; transition: 0.3s;
-}
-.hamburger .bar:last-child { margin-bottom: 0; }
-.hamburger[aria-expanded="true"] .bar:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 5px);
-}
-.hamburger[aria-expanded="true"] .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger[aria-expanded="true"] .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -5px);
-}
+
+/* Theme toggle */
 .theme-toggle {
   background: transparent; border: none;
   font-size: 1.2rem; cursor: pointer; color: inherit;
@@ -117,30 +105,7 @@ html[data-theme="light"] .site-header {
 }
 .theme-toggle:hover { color: var(--color-primary-orange); }
 
-/* Sidebar nav (mobile) */
-.sidebar {
-  background: var(--color-bg-dark);
-  width: 100vw; position: absolute; top: 58px; left: 0;
-  z-index: 1002; box-shadow: 2px 0 16px rgba(0,0,0,0.13);
-  display: flex; flex-direction: column;
-  padding: 1.5rem 0.9rem 1rem 0.9rem;
-  gap: 1.2rem;
-}
-.sidebar[hidden] { display: none; }
-.sidebar-nav {
-  display: flex; flex-direction: row; justify-content: space-around; gap: 0.6rem;
-}
-.sidebar-nav a {
-  background: var(--color-primary-green); color: #fff;
-  padding: 0.6rem 1.1rem; border-radius: 6px;
-  font-weight: 700; font-size: 1rem; text-decoration: none;
-  transition: background 0.19s, color 0.18s;
-}
-.sidebar-nav a.active, .sidebar-nav a:hover {
-  background: var(--color-primary-blue); color: #fff;
-}
-
-/* Hero Section (Solid BG, No Image) */
+/* Hero Section */
 .hero {
   background: linear-gradient(135deg, #222 70%, #333 100%);
   color: #fff;
