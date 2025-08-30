@@ -10,20 +10,13 @@
 <body>
 
 <header class="site-header">
-  <div class="container flex-between">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
+  <div class="container header-flex">
     <h1 class="logo">Nextup Studio</h1>
     <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
       <i class="fas fa-moon"></i>
     </button>
   </div>
-
-  <nav id="nav-menu" class="nav-menu" hidden>
+  <nav class="main-nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="myworld.html">My World</a>
     <a href="addons.html" class="active">Addons</a>
@@ -34,6 +27,7 @@
   <section class="featured-section">
     <h3>Available Addons</h3>
     <div class="card-grid">
+
       <article class="card">
         <img src="images/2.gif" alt="Java Combat Addon Preview" />
         <h4>Java Combat Addon</h4>
@@ -55,14 +49,13 @@
         <a class="btn" href="addons/Action" download>Download</a>
       </article>
 
-      <!-- NEW ADDON CARD -->
+      <!-- New: Raiyon Dynamic Lighting -->
       <article class="card">
-        <img src="images/4.png" alt="Dynamic Lightning Addon Preview" />
-        <h4>Dynamic Lightning Addon</h4>
-        <p>Adds realistic dynamic lighting to your Minecraft world for enhanced visuals and atmosphere.</p>
+        <img src="images/4.jpg" alt="Raiyon Dynamic Lighting Addon Preview" />
+        <h4>Raiyon Dynamic Lighting</h4>
+        <p>Bring your world to life with realistic, moving light sources! Hold torches, lanterns, or fiery blocks and watch the area around you brighten dynamically, just like Java edition mods.</p>
         <a class="btn" href="addons/Dynamic-Lightning.mcaddon" download>Download</a>
       </article>
-      <!-- END NEW CARD -->
 
     </div>
   </section>
@@ -76,7 +69,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container flex-between">
+  <div class="container footer-flex">
     <p>© 2025 Nextup Studio. All rights reserved.</p>
     <div class="social-icons">
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -87,15 +80,7 @@
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
-  hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-    hamburger.setAttribute('aria-expanded', !expanded);
-    navMenu.hidden = !navMenu.hidden;
-  });
-
+  // Theme toggle
   const toggleBtn = document.getElementById('theme-toggle');
   const htmlTag = document.documentElement;
   const sunIconClass = 'fa-sun';
@@ -127,6 +112,5 @@
     updateIcon();
   });
 </script>
-
 </body>
 </html>
