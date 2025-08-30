@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,15 +12,7 @@
 <header class="site-header">
   <div class="container header-flex">
     <h1 class="logo">Nextup Studio</h1>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </button>
   </div>
-  <nav class="main-nav" id="main-nav">
-    <a href="index.html">Home</a>
-    <a href="myworld.html" class="active">My World</a>
-    <a href="addons.html">Addons</a>
-  </nav>
 </header>
 
 <main class="container main-content">
@@ -60,51 +52,20 @@
   </div>
 </footer>
 
-<script>
-  // Theme toggle
-  const toggleBtn = document.getElementById('theme-toggle');
-  const htmlTag = document.documentElement;
-  const sunIconClass = 'fa-sun';
-  const moonIconClass = 'fa-moon';
-
-  function updateIcon() {
-    const icon = toggleBtn.querySelector('i');
-    if (htmlTag.getAttribute('data-theme') === 'dark') {
-      icon.classList.replace(moonIconClass, sunIconClass);
-    } else {
-      icon.classList.replace(sunIconClass, moonIconClass);
-    }
-  }
-
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    htmlTag.setAttribute('data-theme', savedTheme);
-  } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-  }
-  updateIcon();
-
-  toggleBtn.addEventListener('click', () => {
-    const currentTheme = htmlTag.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    htmlTag.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateIcon();
-  });
-</script>
-
 <style>
+  body {
+    background: #181818;
+    color: #eaeaea;
+  }
   .image-gallery-grid {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 1rem;
   }
-  
   .image-gallery-grid img {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
@@ -112,7 +73,6 @@
     background: #181818;
     display: block;
   }
-  
   .image-gallery-grid img:hover {
     transform: scale(1.04);
   }
