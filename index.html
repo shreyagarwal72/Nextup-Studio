@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,31 +11,9 @@
 
 <header class="site-header">
   <div class="container header-flex">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="sidebar">
-      <span class="sr-only">Toggle navigation</span>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
     <h1 class="logo">Nextup Studio</h1>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </button>
   </div>
-  <nav class="main-nav" id="main-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="myworld.html">My World</a>
-    <a href="addons.html">Addons</a>
-  </nav>
 </header>
-
-<aside id="sidebar" class="sidebar" hidden>
-  <nav class="sidebar-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="myworld.html">My World</a>
-    <a href="addons.html">Addons</a>
-  </nav>
-</aside>
 
 <main class="container main-content">
   <section class="hero">
@@ -50,14 +28,12 @@
   <section class="featured-section">
     <h3>Showcase</h3>
     <div class="card-grid">
-      <!-- World Preview Card -->
       <article class="card">
         <img src="myworld/2.jpg" alt="Minecraft World Preview" />
         <h4>Survival Adventure World</h4>
         <p>Enjoy a custom survival map with scenic landscapes, builds, and hidden treasures.</p>
         <a class="btn" href="myworld.html">More Details</a>
       </article>
-      <!-- Addon Preview Card -->
       <article class="card">
         <img src="images/2.gif" alt="Minecraft Addon Preview" />
         <h4>Combat & Actions Addon</h4>
@@ -87,51 +63,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Hamburger sidebar toggle
-  const hamburger = document.getElementById('hamburger');
-  const sidebar = document.getElementById('sidebar');
-  const mainNav = document.getElementById('main-nav');
-  hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-    hamburger.setAttribute('aria-expanded', !expanded);
-    sidebar.hidden = !sidebar.hidden;
-    mainNav.classList.toggle('show-nav');
-  });
-
-  // Sun/Moon theme toggle
-  const toggleBtn = document.getElementById('theme-toggle');
-  const htmlTag = document.documentElement;
-  const sunIconClass = 'fa-sun';
-  const moonIconClass = 'fa-moon';
-  function updateIcon() {
-    const icon = toggleBtn.querySelector('i');
-    if (htmlTag.getAttribute('data-theme') === 'dark') {
-      icon.classList.remove(moonIconClass);
-      icon.classList.add(sunIconClass);
-    } else {
-      icon.classList.remove(sunIconClass);
-      icon.classList.add(moonIconClass);
-    }
-  }
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    htmlTag.setAttribute('data-theme', savedTheme);
-  }
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (!savedTheme) {
-    htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-  }
-  updateIcon();
-  toggleBtn.addEventListener('click', () => {
-    const currentTheme = htmlTag.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    htmlTag.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateIcon();
-  });
-</script>
 
 </body>
 </html>
