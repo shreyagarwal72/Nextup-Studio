@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,15 +12,7 @@
 <header class="site-header">
   <div class="container header-flex">
     <h1 class="logo">Nextup Studio</h1>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </button>
   </div>
-  <nav class="main-nav" id="main-nav">
-    <a href="index.html">Home</a>
-    <a href="myworld.html">My World</a>
-    <a href="addons.html" class="active">Addons</a>
-  </nav>
 </header>
 
 <main class="container main-content">
@@ -49,7 +41,7 @@
         <a class="btn" href="addons/Action" download>Download</a>
       </article>
 
-      <!-- New: Raiyon Dynamic Lighting -->
+      <!-- Raiyon Dynamic Lighting Addon -->
       <article class="card">
         <img src="images/4.jpg" alt="Raiyon Dynamic Lighting Addon Preview" />
         <h4>Raiyon Dynamic Lighting</h4>
@@ -79,38 +71,108 @@
   </div>
 </footer>
 
-<script>
-  // Theme toggle
-  const toggleBtn = document.getElementById('theme-toggle');
-  const htmlTag = document.documentElement;
-  const sunIconClass = 'fa-sun';
-  const moonIconClass = 'fa-moon';
-
-  function updateIcon() {
-    const icon = toggleBtn.querySelector('i');
-    if (htmlTag.getAttribute('data-theme') === 'dark') {
-      icon.classList.replace(moonIconClass, sunIconClass);
-    } else {
-      icon.classList.replace(sunIconClass, moonIconClass);
-    }
+<style>
+  body {
+    background: #181818;
+    color: #eaeaea;
   }
-
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    htmlTag.setAttribute('data-theme', savedTheme);
-  } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    htmlTag.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.1rem;
+    margin-bottom: 2rem;
   }
-  updateIcon();
+  .card {
+    background: #242526;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.09);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 14px 24px rgba(0,0,0,0.11);
+  }
+  .card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background: #222;
+    display: block;
+    border-bottom: 2px solid #43b047;
+  }
+  .card h4 {
+    font-size: 1.11rem;
+    font-weight: 800;
+    margin: 1rem 1rem 0.32rem 1rem;
+    color: #2196f3;
+    transition: color 0.21s;
+  }
+  .card:hover h4 { color: #43b047;}
+  .card p {
+    font-size: 0.98rem;
+    color: #c5c5c5;
+    margin: 0 1rem 1.1rem;
+    line-height: 1.43;
+    flex-grow: 1;
+  }
+  .btn {
+    background: #43b047;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0 1rem 1rem;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.21s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+  }
+  .btn:hover {
+    background: #ff9800;
+  }
+  .btn:active {
+    background: #2196f3;
+  }
+  .site-footer {
+    background: #181818;
+    color: #adadad;
+    text-align: center;
+    padding: 1rem 1.25rem;
+    border-top: 2.5px solid #43b047;
+    margin-top: 2rem;
+  }
+  .footer-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .social-icons a {
+    color: #bbb;
+    font-size: 1.3rem;
+    margin: 0 0.45rem;
+    transition: color 0.25s;
+    text-decoration: none;
+  }
+  .social-icons a:hover {
+    color: #ff9800;
+  }
+  @media (max-width: 500px) {
+    .container { padding: 0.35rem; }
+    .card img { aspect-ratio: 1/1; }
+    .site-footer { padding: 0.7rem; font-size: 0.97rem;}
+    .footer-flex { flex-direction: column; gap: 0.3rem; }
+  }
+  @media (max-width: 768px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
 
-  toggleBtn.addEventListener('click', () => {
-    const currentTheme = htmlTag.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    htmlTag.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateIcon();
-  });
-</script>
 </body>
 </html>
