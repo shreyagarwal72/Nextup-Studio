@@ -10,20 +10,13 @@
 <body>
 
 <header class="site-header">
-  <div class="container flex-between">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
+  <div class="container header-flex">
     <h1 class="logo">Nextup Studio</h1>
     <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle">
       <i class="fas fa-moon"></i>
     </button>
   </div>
-
-  <nav id="nav-menu" class="nav-menu" hidden>
+  <nav class="main-nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="myworld.html" class="active">My World</a>
     <a href="addons.html">Addons</a>
@@ -57,7 +50,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container flex-between">
+  <div class="container footer-flex">
     <p>© 2025 Nextup Studio. All rights reserved.</p>
     <div class="social-icons">
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -68,15 +61,7 @@
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
-  hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-    hamburger.setAttribute('aria-expanded', !expanded);
-    navMenu.hidden = !navMenu.hidden;
-  });
-
+  // Theme toggle
   const toggleBtn = document.getElementById('theme-toggle');
   const htmlTag = document.documentElement;
   const sunIconClass = 'fa-sun';
@@ -113,20 +98,23 @@
   .image-gallery-grid {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 1rem;
   }
   
   .image-gallery-grid img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
+    background: #181818;
+    display: block;
   }
   
   .image-gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 </style>
 
