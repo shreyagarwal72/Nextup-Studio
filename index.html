@@ -6,6 +6,21 @@
   <title>Nextup Studio - Minecraft Hub</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Showcase card images as 16:9 rectangles */
+    .rect-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: #181818;
+      display: block;
+      border-radius: 10px 10px 0 0;
+      border-bottom: 2px solid #43b047;
+    }
+    @media (max-width: 500px) {
+      .rect-img { border-radius: 8px 8px 0 0;}
+    }
+  </style>
 </head>
 <body>
 
@@ -29,22 +44,21 @@
     <h3>Showcase</h3>
     <div class="card-grid">
       <article class="card">
-        <img src="myworld/2.jpg" alt="Minecraft World Preview" />
+        <img class="rect-img" src="myworld/2.jpg" alt="Minecraft World Preview" />
         <h4>Survival Adventure World</h4>
         <p>Enjoy a custom survival map with scenic landscapes, builds, and hidden treasures.</p>
         <a class="btn" href="myworld.html">More Details</a>
       </article>
       <article class="card">
-        <img src="images/2.gif" alt="Minecraft Addon Preview" />
+        <img class="rect-img" src="images/2.gif" alt="Minecraft Addon Preview" />
         <h4>Combat & Actions Addon</h4>
         <p>Upgrade your game with custom combat features, new animations, and special abilities.</p>
         <a class="btn" href="addons.html">Download Addon</a>
       </article>
-      <!-- NEW: Minecraft Patched Download -->
       <article class="card">
-        <img src="patched/1.jpg" alt="Minecraft Patched Preview" />
+        <img class="rect-img" src="patched/1.jpg" alt="Minecraft Patched Preview" />
         <h4>Minecraft Patched 1.21.101</h4>
-        <p>Get all special versions: Normal, Night Vision, 4D Skin Layer, and Vibrant Visuals.  
+        <p>Get all special versions: Normal, Night Vision, 4D Skin Layer, and Vibrant Visuals.<br>
            Experience Minecraft 1.21.101 with extra features for every play style!</p>
         <a class="btn" href="patched.html">Download All Patched Versions</a>
       </article>
