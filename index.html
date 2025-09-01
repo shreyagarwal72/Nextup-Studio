@@ -6,23 +6,18 @@
   <title>Nextup Studio - Minecraft Hub</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    /* Showcase card images as 16:9 rectangles */
-    .rect-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      background: #181818;
-      display: block;
-      border-radius: 10px 10px 0 0;
-      border-bottom: 2px solid #43b047;
-    }
-    @media (max-width: 500px) {
-      .rect-img { border-radius: 8px 8px 0 0;}
-    }
-  </style>
 </head>
 <body>
+
+<!-- Splash Screen Logo Animation -->
+<div id="splash">
+  <div class="splash-logo">
+    <!-- Apne logo ka sahi path lagayein -->
+    <img src="images/logo.png" alt="Nextup Studio" />
+    <!-- Agar aapka image alag naam ya folder mein hai, wo path yahan daalen -->
+    <!-- Example: <img src="file_00000000606c61fdb2a92e7fd9d43b46.jpeg" alt="Nextup Studio" /> -->
+  </div>
+</div>
 
 <header class="site-header">
   <div class="container header-flex">
@@ -55,6 +50,7 @@
         <p>Upgrade your game with custom combat features, new animations, and special abilities.</p>
         <a class="btn" href="addons.html">Download Addon</a>
       </article>
+      <!-- Minecraft Patched Card -->
       <article class="card">
         <img class="rect-img" src="patched/1.jpg" alt="Minecraft Patched Preview" />
         <h4>Minecraft Patched 1.21.101</h4>
@@ -85,5 +81,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Splash Screen JS -->
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      const splash = document.getElementById('splash');
+      if(splash) {
+        splash.style.opacity = 0;
+        setTimeout(() => splash.remove(), 700);
+      }
+    }, 1700); // Animation timing (1.7s)
+  });
+</script>
 </body>
 </html>
