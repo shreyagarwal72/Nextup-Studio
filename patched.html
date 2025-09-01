@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Minecraft Patched 1.21.101 - Nextup Studio</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- For button icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    /* Patch page cards only */
-    .patch-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-      background: #181818;
-      display: block;
-      border-bottom: 2px solid #43b047;
+    .note {
+      background: #232929;
+      color: #fcf7c0;
+      padding: 1.09rem 1.1rem;
+      border-left: 6px solid #ff9800;
+      border-radius: 10px;
+      margin: 2.2rem auto 0 auto;
+      max-width: 590px;
+      font-size: 1.04rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.12);
     }
-    @media (max-width: 500px) {
-      .patch-img { border-radius: 8px 8px 0 0;}
+    .note strong {
+      color: #ffc107;
+    }
+    .btn i.fa-download {
+      margin-right: 0.6em;
+      font-size: 1.18em;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -34,40 +42,59 @@
   <section class="featured-section">
     <h3>Minecraft Patched 1.21.101</h3>
     <p style="max-width: 700px; margin: 0 auto 2rem auto; color: #dadada; font-size:1.13rem;">
-      Download the latest Minecraft 1.21.101 patches by Nextup Studio.  
+      Download the latest Minecraft 1.21.101 patches by Nextup Studio.
       Each version offers a unique twist—see visuals below and pick your favorite!
     </p>
-
     <div class="card-grid">
 
+      <!-- 1. Normal Version -->
       <article class="card">
         <img class="patch-img" src="patched/1.jpg" alt="Normal Minecraft Patch Preview" />
         <h4>Normal Version</h4>
         <p>Pure, original Minecraft 1.21.101 experience. No modifications. Maximum compatibility and stability for all players.</p>
-        <a class="btn" href="" download>Download Normal</a>
+        <a class="btn" href="https://dl2.cdn9mc.com/index.php?act=download&id=1755232472&hash=68b5ae8601e6d" target="_blank" rel="noopener">
+          <i class="fa fa-download"></i>Download Normal
+        </a>
       </article>
 
+      <!-- 2. Night Vision Version -->
       <article class="card">
         <img class="patch-img" src="patched/2.jpg" alt="Night Vision Patch Preview" />
         <h4>Night Vision Version</h4>
         <p>Always see clearly even in the darkest caves and night! Permanent Night Vision makes survival easier and exploration more fun.</p>
-        <a class="btn" href="" download>Download Night Vision</a>
+        <a class="btn" href="https://download2.cdn9mc.com/index.php?act=download&id=1756570028&hash=68b5aee0eec00" target="_blank" rel="noopener">
+          <i class="fa fa-download"></i>Download Night Vision
+        </a>
       </article>
 
+      <!-- 3. 4D Skin Layer Version -->
       <article class="card">
         <img class="patch-img" src="patched/3.jpg" alt="4D Skin Layer Patch Preview" />
         <h4>4D Skin Layer Version</h4>
         <p>Play with fully supported 4D/extra-layer skins! Stand out with custom character models just like in advanced Java mods.</p>
-        <a class="btn" href="" download>Download 4D Skin Layer</a>
+        <a class="btn" href="https://files4.cdn9mc.com/index.php?act=download&id=1755232442&hash=68b5af01181d8" target="_blank" rel="noopener">
+          <i class="fa fa-download"></i>Download 4D Skin Layer
+        </a>
       </article>
       
+      <!-- 4. Vibrant Visuals Extended -->
       <article class="card">
         <img class="patch-img" src="patched/4.jpg" alt="Vibrant Visuals Patch Preview" />
         <h4>Vibrant Visuals Extended</h4>
         <p>Enhanced saturated colors, custom sky, and dynamic lighting for the most visually immersive Minecraft 1.21.101 experience.</p>
-        <a class="btn" href="" download>Download Vibrant Visuals</a>
+        <a class="btn" href="https://files4.cdn9mc.com/index.php?act=download&id=1755863842&hash=68b5af1f6feba" target="_blank" rel="noopener">
+          <i class="fa fa-download"></i>Download Vibrant Visuals
+        </a>
       </article>
 
+    </div>
+    <!-- NOTES/DISCLAIMER -->
+    <div class="note">
+      <strong>Note:</strong><br>
+      1. Night Vision and 4D Skin Layer versions do <b>NOT</b> include Minecraft original music.<br>
+      2. I am <b>not</b> the real owner or manufacturer of these files.<br>
+      All rights belong to their respective owners and Mojang/Microsoft.<br>
+      Use for personal educational/testing purposes only.
     </div>
   </section>
 </main>
