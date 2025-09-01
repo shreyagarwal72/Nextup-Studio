@@ -5,83 +5,91 @@
   --color-primary-blue: #2196f3;
   --color-primary-orange: #ff9800;
   --card-bg: #242526;
-  --card-shadow: rgba(0,0,0,0.09);
-  --border-radius: 12px;
+  --card-shadow: rgba(0,0,0,0.10);
+  --border-radius: 13px;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh; display: flex; flex-direction: column;
-  line-height: 1.6;
+  min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);
-  transition: background 0.3s, color 0.3s;
+  display: flex; flex-direction: column;
+  line-height: 1.62;
+  font-size: 1.03rem;
+  transition: background 0.28s, color 0.28s;
 }
 
 .container {
-  max-width: 1100px; margin: 0 auto;
-  padding: 1rem; flex-grow: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.1rem;
+  width: 100%;
+  flex-grow: 1;
 }
 .header-flex {
-  display: flex; align-items: center;
-  justify-content: space-between; flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.7rem;
 }
 .site-header {
   background: var(--color-bg);
-  color: var(--color-text); 
-  padding: 0.8rem 1.1rem 0 1.1rem;
+  color: var(--color-text);
+  padding: 1rem 1.1rem 0 1.1rem;
   border-bottom: 2.5px solid var(--color-primary-green);
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .logo {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 1.62rem;
+  font-weight: 900;
   color: inherit;
   letter-spacing: 1px;
-  text-shadow: 1px 3px 8px rgba(0,0,0,0.25);
+  text-shadow: 1px 3px 8px rgba(0,0,0,0.3);
   margin-left: 0.3rem;
 }
 
-/* Remove navigation, sidebar, hamburger + theme-toggle */
-/* No .main-nav, .sidebar, .hamburger, .theme-toggle CSS */
-
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #222 70%, #333 100%);
+  background: linear-gradient(135deg, #232323 72%, #282d34 100%);
   color: #fff;
   text-align: center;
-  margin: 1.3rem 0 2rem 0;
+  margin: 1.5rem 0 2.2rem 0;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
-  padding: 2.2rem 1.2rem 1.4rem 1.2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.17);
+  padding: 2.2rem 1.2rem 1.6rem 1.2rem;
   position: relative;
 }
 .hero h2 {
-  font-size: 1.3rem; font-weight: 800;
-  margin-bottom: 0.5rem; letter-spacing: 0.2px;
+  font-size: 1.34rem; font-weight: 900;
+  margin-bottom: 0.54rem; letter-spacing: 0.2px;
 }
 @media (min-width: 580px) {
-  .hero h2 { font-size: 2rem; }
-  .hero { padding: 3.2rem 2rem 2rem 2rem; }
+  .hero h2 { font-size: 2.05rem; }
+  .hero { padding: 3.1rem 2.4rem 2.1rem 2.4rem; }
 }
 .hero p {
-  font-size: 1rem;
+  font-size: 1.07rem;
   margin-bottom: 1.05rem;
   max-width: 520px;
   margin-left: auto; margin-right: auto;
   color: #eaeaea;
 }
 .hero .btn {
-  padding: 0.62rem 1.5rem;
-  font-weight: 700;
+  padding: 0.68rem 1.7rem;
+  font-weight: 800;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-top: 0.5rem; margin-right: 0.4rem;
   background: var(--color-primary-green);
   color: #fff;
-  border: none; cursor: pointer;
-  transition: background 0.21s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(67,176,71,0.09);
+  transition: background 0.2s;
 }
 .hero .btn.outlined {
   background: none;
@@ -95,59 +103,99 @@ body {
   border-color: var(--color-primary-orange);
 }
 
-/* Card Grid (addons.html) */
+/* Card Grid for all sections */
 .card-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.1rem; margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.12rem;
+  margin-bottom: 2.3rem;
 }
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
-  box-shadow: 0 8px 16px var(--card-shadow);
+  box-shadow: 0 8px 18px var(--card-shadow);
   display: flex; flex-direction: column;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.19s;
 }
 .card:hover {
-  transform: translateY(-7px) scale(1.02);
-  box-shadow: 0 14px 24px rgba(0,0,0,0.11);
+  transform: translateY(-7px) scale(1.018);
+  box-shadow: 0 16px 28px rgba(0,0,0,0.15);
 }
+
+/* Addons.html, etc - SQUARE IMAGES by default */
 .card img {
   width: 100%;
-  aspect-ratio: 1/1;    /* Square images on addons.html */
+  aspect-ratio: 1/1;
   object-fit: cover;
-  background: #222;
+  background: #232323;
   display: block;
   border-bottom: 2px solid var(--color-primary-green);
 }
+
+/* PATCHED, SHOWCASE, or WORLD PREVIEWS - 16:9 rectangle */
+.rect-img, .patch-img {
+  aspect-ratio: 16/9 !important;
+  border-radius: 10px 10px 0 0;
+  background: #191919;
+}
+
+/* Headings, card text */
 .card h4 {
-  font-size: 1.11rem; font-weight: 800;
-  margin: 1rem 1rem 0.32rem 1rem;
+  font-size: 1.13rem;
+  font-weight: 900;
+  margin: 1rem 1rem 0.35rem 1rem;
   color: var(--color-primary-blue);
   transition: color 0.21s;
 }
-.card:hover h4 { color: var(--color-primary-green);}
+.card:hover h4 {
+  color: var(--color-primary-green)
+}
 .card p {
   font-size: 0.98rem;
-  color: #c5c5c5;
-  margin: 0 1rem 1.1rem; line-height: 1.43;
+  color: #cbcbcb;
+  margin: 0 1rem 1.08rem;
+  line-height: 1.44;
   flex-grow: 1;
 }
 .btn {
   background: var(--color-primary-green);
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.62rem 1.22rem;
   margin: 0 1rem 1rem;
   border-radius: 7px;
-  color: #fff; font-weight: 700;
-  cursor: pointer; transition: background 0.21s;
-  text-align: center; text-decoration: none; display: inline-block;
-  font-size: 1rem;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.22s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.01rem;
+  letter-spacing: .01em;
 }
 .btn:hover { background: var(--color-primary-orange);}
 .btn:active { background: var(--color-primary-blue); }
 
-.latest-news ul { list-style-type: disc; padding-left: 2rem; color: #bbb; font-size: 1rem; margin-bottom: 2rem; }
+/* Patch-specific screenshot gallery */
+.patch-gallery {
+  width: 100%;
+  margin: 2rem auto 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+.patch-gallery img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+  background: #181818;
+  display: block;
+  transition: transform 0.18s;
+}
+.patch-gallery img:hover { transform: scale(1.033); }
 
 /* Gallery for myworld.html */
 .image-gallery-grid {
@@ -161,8 +209,8 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  transition: transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+  transition: transform 0.2s;
   background: #181818;
   display: block;
 }
@@ -170,20 +218,30 @@ body {
   transform: scale(1.04);
 }
 
+/* News / utility sections */
+.latest-news ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
 /* Footer */
 .site-footer {
   background: var(--color-bg);
   color: #adadad;
   text-align: center;
-  padding: 1rem 1.25rem;
+  padding: 1.12rem 1.25rem;
   border-top: 2.5px solid var(--color-primary-green);
-  margin-top: 2rem;
+  margin-top: 2.2rem;
 }
 .footer-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  row-gap: .7em;
 }
 .social-icons a {
   color: #bbb;
@@ -194,13 +252,18 @@ body {
 }
 .social-icons a:hover { color: var(--color-primary-orange); }
 
-@media (max-width: 500px) {
-  .container { padding: 0.35rem; }
-  .card img { aspect-ratio: 1/1; }
-  .site-footer { padding: 0.7rem; font-size: 0.97rem;}
-  .footer-flex { flex-direction: column; gap: 0.3rem; }
+/* Responsive design */
+@media (max-width: 700px) {
+  .container { padding: 0.55rem; }
+  .site-footer { padding: 0.75rem; font-size: 0.99rem;}
+  .footer-flex { flex-direction: column; gap: 0.33rem; }
 }
-@media (max-width: 768px) {
-  .card-grid { grid-template-columns: 1fr; }
-  .hero .btn { margin-bottom: 0.4rem; display: block;}
+@media (max-width: 900px) {
+  .card-grid, .patch-gallery, .image-gallery-grid { grid-template-columns: 1fr; }
+  .hero .btn { margin-bottom: 0.44rem; display: block;}
+}
+@media (max-width: 500px) {
+  .card img, .rect-img, .patch-img, .patch-gallery img,
+  .image-gallery-grid img { border-radius: 7px 7px 0 0; }
+  .footer-flex { gap: 0.4rem; }
 }
