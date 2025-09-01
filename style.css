@@ -9,6 +9,62 @@
   --border-radius: 13px;
 }
 
+/* Splash Screen ----------------------------------- */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.55s cubic-bezier(.85,0,.15,1);
+  animation: splashFadein 0.7s;
+}
+.splash-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: logoPop 0.95s cubic-bezier(.79,.16,.19,.84);
+  user-select: none;
+}
+.splash-logo img, .splash-logo span {
+  width: 80px; height: 80px;
+  /* If pure text, adjust below: */
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--color-primary-green);
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 20px #4caf5077, 0 1px 6px #000a;
+  animation: logoPulse 1.15s infinite alternate;
+  filter: drop-shadow(0 0 6px #43b04744);
+}
+.splash-logo span {
+  display: inline-block;
+  padding-top: 8px;
+  /* Add MC-style font with a Google Font if desired (e.g., 'Press Start 2P') */
+}
+@keyframes logoPop {
+  0% { transform: scale(.2) rotate(-37deg); opacity: 0; }
+  65% { transform: scale(1.18) rotate(13deg); opacity: 1; }
+  85% { transform: scale(0.98) rotate(-5deg);}
+  100% { transform: scale(1) rotate(0deg);}
+}
+@keyframes logoPulse {
+  0% { filter: drop-shadow(0 0 20px #2196f3bb) brightness(1.04);}
+  100% { filter: drop-shadow(0 0 12px #43b047) brightness(1.13);}
+}
+@keyframes splashFadein {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+/* Hide scroll while splash visible */
+body:has(#splash) { overflow: hidden !important; }
+
+/* ----------------------------------- */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -16,14 +72,13 @@ body {
   color: var(--color-text);
   display: flex; flex-direction: column;
   line-height: 1.62;
-  font-size: 1.03rem;
+  font-size: 1.05rem;
   transition: background 0.28s, color 0.28s;
 }
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 1.1rem;
+  padding: 1.07rem;
   width: 100%;
   flex-grow: 1;
 }
@@ -107,8 +162,8 @@ body {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.12rem;
-  margin-bottom: 2.3rem;
+  gap: 1.13rem;
+  margin-bottom: 2.35rem;
 }
 .card {
   background: var(--card-bg);
@@ -122,8 +177,6 @@ body {
   transform: translateY(-7px) scale(1.018);
   box-shadow: 0 16px 28px rgba(0,0,0,0.15);
 }
-
-/* Addons.html, etc - SQUARE IMAGES by default */
 .card img {
   width: 100%;
   aspect-ratio: 1/1;
@@ -180,10 +233,10 @@ body {
 /* Patch-specific screenshot gallery */
 .patch-gallery {
   width: 100%;
-  margin: 2rem auto 1rem auto;
+  margin: 2.1rem auto 1.1rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.1rem;
+  gap: 1.12rem;
 }
 .patch-gallery img {
   width: 100%;
@@ -210,7 +263,7 @@ body {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.13);
-  transition: transform 0.2s;
+  transition: transform 0.18s;
   background: #181818;
   display: block;
 }
@@ -252,7 +305,7 @@ body {
 }
 .social-icons a:hover { color: var(--color-primary-orange); }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 700px) {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
@@ -265,5 +318,5 @@ body {
 @media (max-width: 500px) {
   .card img, .rect-img, .patch-img, .patch-gallery img,
   .image-gallery-grid img { border-radius: 7px 7px 0 0; }
-  .footer-flex { gap: 0.4rem; }
+  .footer-flex { gap: 0.45rem; }
 }
