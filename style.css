@@ -30,30 +30,33 @@
   user-select: none;
 }
 .splash-logo img, .splash-logo span {
-  width: 80px; height: 80px;
-  /* If pure text, adjust below: */
+  width: 110px; height: 110px;
+  object-fit: contain;
+  /* For text logo below */
   font-size: 2.4rem;
   font-weight: 900;
   color: var(--color-primary-green);
   letter-spacing: 1.5px;
   text-shadow: 0 4px 20px #4caf5077, 0 1px 6px #000a;
-  animation: logoPulse 1.15s infinite alternate;
+  animation: logoPulse 1.18s infinite alternate;
   filter: drop-shadow(0 0 6px #43b04744);
+  background: transparent;
 }
+/* For text splash logo (alternative)
 .splash-logo span {
   display: inline-block;
   padding-top: 8px;
-  /* Add MC-style font with a Google Font if desired (e.g., 'Press Start 2P') */
 }
+*/
 @keyframes logoPop {
-  0% { transform: scale(.2) rotate(-37deg); opacity: 0; }
+  0% { transform: scale(.22) rotate(-37deg); opacity: 0; }
   65% { transform: scale(1.18) rotate(13deg); opacity: 1; }
   85% { transform: scale(0.98) rotate(-5deg);}
   100% { transform: scale(1) rotate(0deg);}
 }
 @keyframes logoPulse {
-  0% { filter: drop-shadow(0 0 20px #2196f3bb) brightness(1.04);}
-  100% { filter: drop-shadow(0 0 12px #43b047) brightness(1.13);}
+  0% { filter: drop-shadow(0 0 20px #2196f3bb) brightness(1.05);}
+  100% { filter: drop-shadow(0 0 13px #43b047) brightness(1.16);}
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
@@ -193,7 +196,6 @@ body {
   background: #191919;
 }
 
-/* Headings, card text */
 .card h4 {
   font-size: 1.13rem;
   font-weight: 900;
@@ -309,7 +311,7 @@ body {
 @media (max-width: 700px) {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
-  .footer-flex { flex-direction: column; gap: 0.33rem; }
+  .footer-flex { flex-direction: column; gap: 0.35rem; }
 }
 @media (max-width: 900px) {
   .card-grid, .patch-gallery, .image-gallery-grid { grid-template-columns: 1fr; }
@@ -318,5 +320,5 @@ body {
 @media (max-width: 500px) {
   .card img, .rect-img, .patch-img, .patch-gallery img,
   .image-gallery-grid img { border-radius: 7px 7px 0 0; }
-  .footer-flex { gap: 0.45rem; }
+  .footer-flex { gap: 0.52rem; }
 }
