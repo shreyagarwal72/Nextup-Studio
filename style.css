@@ -19,51 +19,53 @@
   align-items: center;
   justify-content: center;
   transition: opacity 0.55s cubic-bezier(.85,0,.15,1);
-  animation: splashFadein 0.7s;
+  animation: splashFadein 0.6s;
 }
 .splash-logo {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: logoPop 0.95s cubic-bezier(.79,.16,.19,.84);
-  user-select: none;
+  width: 100vw; height: 100vh;
+  animation: logoPop 0.9s cubic-bezier(.24,.86,.39,1.3);
 }
-.splash-logo img, .splash-logo span {
-  width: 110px; height: 110px;
-  object-fit: contain;
-  /* For text logo below */
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: var(--color-primary-green);
-  letter-spacing: 1.5px;
-  text-shadow: 0 4px 20px #4caf5077, 0 1px 6px #000a;
-  animation: logoPulse 1.18s infinite alternate;
-  filter: drop-shadow(0 0 6px #43b04744);
+.splash-logo img {
+  width: 38vw;
+  min-width: 148px;
+  max-width: 350px;
+  height: auto;
+  box-shadow:
+    0 0 24px 8px #43b04780,
+    0 0 90px 35px #2196f320,
+    0 1px 13px 0 #141414;
+  border-radius: 20px;
   background: transparent;
+  animation: logoGlowScale 1.9s cubic-bezier(.37,1,.64,1.05) infinite alternate;
+  filter: drop-shadow(0 0 12px #82ff72c0) drop-shadow(0 0 1px #000);
+  image-rendering: auto;
+  object-fit: contain;
 }
-/* For text splash logo (alternative)
-.splash-logo span {
-  display: inline-block;
-  padding-top: 8px;
-}
-*/
 @keyframes logoPop {
-  0% { transform: scale(.22) rotate(-37deg); opacity: 0; }
-  65% { transform: scale(1.18) rotate(13deg); opacity: 1; }
-  85% { transform: scale(0.98) rotate(-5deg);}
+  0% { transform: scale(0.2) rotate(-12deg); opacity: 0; }
+  60% { transform: scale(1.13) rotate(4deg); opacity: 1;}
+  92% { transform: scale(0.94) rotate(-1deg);}
   100% { transform: scale(1) rotate(0deg);}
 }
-@keyframes logoPulse {
-  0% { filter: drop-shadow(0 0 20px #2196f3bb) brightness(1.05);}
-  100% { filter: drop-shadow(0 0 13px #43b047) brightness(1.16);}
+@keyframes logoGlowScale {
+  0% {
+    box-shadow: 0 0 20px 5px #7fda66bb, 0 0 45px 5px #2196f344, 0 1px 13px #141414;
+    filter: drop-shadow(0 0 15px #82ff72b8) brightness(1.07);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 45px 20px #43b04799, 0 0 120px 50px #2196f355, 0 4px 26px #141414;
+    filter: drop-shadow(0 0 32px #aafe85f4) brightness(1.15);
+    transform: scale(1.055) rotate(-1.5deg);
+  }
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
   100% { opacity: 1;}
 }
-
-/* Hide scroll while splash visible */
 body:has(#splash) { overflow: hidden !important; }
 
 /* ----------------------------------- */
