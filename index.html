@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nextup Studio - Minecraft Hub</title>
+  <title>Download Techno Gamerz Minecraft World & Bedrock Addons | Nextup Studio</title>
+  <meta name="description" content="Your hub for Minecraft Bedrock worlds, Techno Gamerz World, and premium addons with a studio-quality swords intro animation.">
   <link rel="stylesheet" href="style.css" />
-  <!-- FontAwesome only if you use icons 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  -->
 </head>
 <body>
 
-<!-- Splash Screen Logo Animation -->
+<!-- Splash Screen Swords Animation (no logo.png splash) -->
 <div id="splash">
-  <div class="splash-logo">
-    <img src="images/logo.png" alt="Nextup Studio" />
+  <div class="sword-intro">
+    <img class="sword left-sword" src="logo/1.png" alt="Sword Left" />
+    <img class="sword right-sword" src="logo/2.png" alt="Sword Right" />
   </div>
 </div>
 
@@ -27,7 +26,7 @@
 <main class="container main-content">
   <section class="hero">
     <h2>Welcome to Nextup Studio!</h2>
-    <p>Your hub for Minecraft worlds, maps, and feature-rich addons. Designed for the Bedrock Edition community.</p>
+    <p>Your hub for Minecraft worlds, Techno Gamerz World downloads, and feature-rich Bedrock addons. Designed for players who want more adventure.</p>
     <div class="hero-actions">
       <a href="myworld.html" class="btn">Explore My World</a>
       <a href="addons.html" class="btn outlined">Discover Addons</a>
@@ -49,7 +48,6 @@
         <p>Upgrade your game with custom combat features, new animations, and special abilities.</p>
         <a class="btn" href="addons.html">Download Addon</a>
       </article>
-      <!-- Minecraft Patched Card -->
       <article class="card">
         <img class="rect-img" src="patched/1.jpg" alt="Minecraft Patched Preview" />
         <h4>Minecraft Patched 1.21.101</h4>
@@ -81,24 +79,30 @@
   </div>
 </footer>
 
-<!-- Splash Screen JS (full fluid experience) -->
+<!-- Swords Animation JS: -->
 <script>
-  window.addEventListener('DOMContentLoaded', function() {
-    var splash = document.getElementById('splash');
-    var logo = document.querySelector('.splash-logo img');
-    function hideSplash() {
-      if(splash) {
-        splash.style.opacity = 0;
-        setTimeout(() => splash.remove(), 700);
-      }
-    }
-    if (logo && !logo.complete) {
-      logo.onload = () => setTimeout(hideSplash, 500);
-      setTimeout(hideSplash, 2600);
-    } else {
-      setTimeout(hideSplash, 1100);
-    }
-  });
+document.addEventListener('DOMContentLoaded', function() {
+  const leftSword = document.querySelector('.left-sword');
+  const rightSword = document.querySelector('.right-sword');
+  const splash = document.getElementById('splash');
+  // Swords slide/cross in
+  setTimeout(() => {
+    leftSword.style.opacity = "1";
+    rightSword.style.opacity = "1";
+  }, 100);
+  setTimeout(() => {
+    leftSword.classList.add('crossed');
+    rightSword.classList.add('crossed');
+  }, 950);
+  setTimeout(() => {
+    leftSword.style.opacity = "0";
+    rightSword.style.opacity = "0";
+  }, 1650);
+  setTimeout(() => {
+    splash.style.opacity = 0;
+    setTimeout(() => splash.remove(), 700);
+  }, 2350);
+});
 </script>
 </body>
 </html>
