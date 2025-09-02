@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nextup Studio - Minecraft Hub</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- FontAwesome only if you use icons 
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  -->
 </head>
 <body>
 
 <!-- Splash Screen Logo Animation -->
 <div id="splash">
   <div class="splash-logo">
-    <!-- Apne logo ka path yahan sahi karein -->
     <img src="images/logo.png" alt="Nextup Studio" />
   </div>
 </div>
@@ -80,16 +81,23 @@
   </div>
 </footer>
 
-<!-- Splash Screen JS -->
+<!-- Splash Screen JS (full fluid experience) -->
 <script>
   window.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      const splash = document.getElementById('splash');
+    var splash = document.getElementById('splash');
+    var logo = document.querySelector('.splash-logo img');
+    function hideSplash() {
       if(splash) {
         splash.style.opacity = 0;
         setTimeout(() => splash.remove(), 700);
       }
-    }, 1700); // Animation duration
+    }
+    if (logo && !logo.complete) {
+      logo.onload = () => setTimeout(hideSplash, 500);
+      setTimeout(hideSplash, 2600);
+    } else {
+      setTimeout(hideSplash, 1100);
+    }
   });
 </script>
 </body>
