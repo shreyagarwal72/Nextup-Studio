@@ -4,53 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Download Techno Gamerz Minecraft World & Bedrock Addons | Nextup Studio</title>
-  <meta name="description" content="Your hub for Minecraft Bedrock worlds, Techno Gamerz World, and premium addons with a studio-quality swords intro animation.">
+  <meta name="description" content="Your hub for Minecraft Bedrock worlds, Techno Gamerz World, and premium addons with a studio-quality crossed swords intro animation.">
   <link rel="stylesheet" href="style.css" />
-  <!-- FontAwesome only if you use icons 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  -->
-  <style>
-    /* Swords intro merged for safety, if not in style.css */
-    .sword-intro {
-      position: relative;
-      width: 230px; height: 170px;
-      display: flex;
-      align-items: center; justify-content: center;
-    }
-    .sword {
-      position: absolute;
-      width: 86px;
-      height: auto;
-      top: 50%; left: 50%;
-      opacity: 0;
-      filter: drop-shadow(0 2px 16px #40ff9380);
-      transform: translate(-50%, -50%) scale(1.05);
-      transition: all 0.8s cubic-bezier(.48,1.4,.6,1);
-    }
-    .sword.shown {
-      opacity: 1;
-    }
-    .left-sword { z-index: 1; transform: translate(-50%, -50%) scale(1.05) rotate(-46deg);}
-    .right-sword { z-index: 2; transform: translate(-50%, -50%) scale(1.05) rotate(46deg);}
-    .sword.move-left  {
-      opacity: 0;
-      transform: translate(-250px, 120px) scale(1) rotate(-18deg);
-    }
-    .sword.move-right {
-      opacity: 0;
-      transform: translate(190px, -120px) scale(1) rotate(18deg);
-    }
-    /* Always keep #splash on top while intro runs */
-    #splash { z-index: 5000; }
-  </style>
 </head>
 <body>
 
-<!-- Splash Screen Swords Animation (no logo.png splash) -->
+<!-- Splash Screen Swords Animation -->
 <div id="splash">
   <div class="sword-intro">
-    <img class="sword left-sword" src="logo/1.png" alt="Sword Left" />
-    <img class="sword right-sword" src="logo/2.png" alt="Sword Right" />
+    <img class="sword left-sword" src="logo/sword.png" alt="Sword Left" />
+    <img class="sword right-sword" src="logo/sword.png" alt="Sword Right" />
   </div>
 </div>
 
@@ -116,26 +79,22 @@
   </div>
 </footer>
 
-<!-- Swords Animation JS -->
+<!-- Swords Crossed Animation JS -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const leftSword = document.querySelector('.left-sword');
   const rightSword = document.querySelector('.right-sword');
   const splash = document.getElementById('splash');
-
-  // Pehle crossed dikhana
   setTimeout(() => {
     leftSword.classList.add('shown');
     rightSword.classList.add('shown');
   }, 100);
-  // 1s ke baad alag hoke nikal jaayein
   setTimeout(() => {
     leftSword.classList.remove('shown');
     rightSword.classList.remove('shown');
     leftSword.classList.add('move-left');
     rightSword.classList.add('move-right');
   }, 1200);
-  // Swords out, splash fade
   setTimeout(() => {
     splash.style.opacity = 0;
     setTimeout(() => splash.remove(), 600);
