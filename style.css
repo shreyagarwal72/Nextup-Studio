@@ -34,20 +34,28 @@
   top: 50%; left: 50%;
   opacity: 0;
   filter: drop-shadow(0 2px 18px #40ff9380);
-  transform: translate(-50%, -50%) scale(1.05);
+  /* Default: crossed shape (X/⚔️) using rotate! */
   transition: all 0.85s cubic-bezier(.48,1.4,.6,1);
 }
 .sword.shown {
   opacity: 1;
 }
-.left-sword { z-index: 1; transform: translate(-50%, -50%) scale(1.07) rotate(-46deg);}
-.right-sword { z-index: 2; transform: translate(-50%, -50%) scale(1.07) rotate(46deg);}
+.left-sword {
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(1.07) rotate(-46deg);
+}
+.right-sword {
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(1.07) rotate(46deg);
+}
 .sword.move-left  {
   opacity: 0;
+  /* Move left, flatten a bit */
   transform: translate(-240px, 110px) scale(1.04) rotate(-16deg);
 }
 .sword.move-right {
   opacity: 0;
+  /* Move right, flatten a bit */
   transform: translate(190px, -110px) scale(1.04) rotate(16deg);
 }
 @keyframes splashFadein {
