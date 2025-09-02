@@ -70,10 +70,16 @@ body:has(#splash) { overflow: hidden !important; }
 /* Modern Header/Footer shadow for depth */
 .site-header, .site-footer {
   box-shadow: 0 7px 28px 0 #0005, 0 -7px 28px 0 #0005;
+  animation: fadeSlideDown 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
+}
+.site-header h1 {
+  animation: textGlow 2.4s cubic-bezier(.4,.9,.8,1.4) infinite alternate;
+}
+.hero {
+  animation: fadeInUp 1.3s cubic-bezier(.32, .72, .47, 1.32) both;
 }
 
-/* ----------------------------------- */
-
+/* Main Body & Container */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -85,44 +91,26 @@ body {
   transition: background 0.28s, color 0.28s;
 }
 
-/* ----------------- Animated Card Grid -------------- */
+/* ==========================
+   ANIMATIONS AND TRANSITIONS
+========================== */
 
-.card-grid, .image-gallery-grid, .patch-gallery {
-  /* same as before */
+@keyframes fadeSlideDown {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
 }
-
-.card, .image-gallery-grid img, .patch-gallery img {
-  /* Element animation delay by nth-child for wave effect; fade-slide-in! */
-  opacity: 0;
-  transform: translateY(50px) scale(0.97);
-  animation: fadeInCard 0.98s cubic-bezier(.32,.8,.42,1.07) forwards;
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
 }
-.card:nth-child(1),
-.image-gallery-grid img:nth-child(1),
-.patch-gallery img:nth-child(1) {
-  animation-delay: 0.05s;
+@keyframes textGlow {
+  from {text-shadow: 0 0 8px var(--color-primary-green), 0 0 18px var(--color-primary-blue);}
+  to {text-shadow: 0 0 24px var(--color-primary-green), 0 0 48px var(--color-primary-blue);}
 }
-.card:nth-child(2),
-.image-gallery-grid img:nth-child(2),
-.patch-gallery img:nth-child(2) {
-  animation-delay: 0.18s;
+@keyframes cardFade {
+  0% { opacity: 0; transform: translateY(24px) scale(0.95);}
+  100% { opacity: 1; transform: none;}
 }
-.card:nth-child(3),
-.image-gallery-grid img:nth-child(3),
-.patch-gallery img:nth-child(3) {
-  animation-delay: 0.30s;
-}
-.card:nth-child(4),
-.image-gallery-grid img:nth-child(4),
-.patch-gallery img:nth-child(4) {
-  animation-delay: 0.43s;
-}
-.card:nth-child(5),
-.image-gallery-grid img:nth-child(5),
-.patch-gallery img:nth-child(5) {
-  animation-delay: 0.56s;
-}
-
 @keyframes fadeInCard {
   to {
     opacity: 1;
@@ -130,30 +118,50 @@ body {
   }
 }
 
+/* Card and Grid Fluid Wave Fade-In */
+.card, .image-gallery-grid img, .patch-gallery img {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  animation: cardFade 0.65s cubic-bezier(.3,.72,.22,1.38) forwards;
+}
+.card:nth-child(1), .image-gallery-grid img:nth-child(1), .patch-gallery img:nth-child(1) { animation-delay: 0.00s; }
+.card:nth-child(2), .image-gallery-grid img:nth-child(2), .patch-gallery img:nth-child(2) { animation-delay: 0.13s; }
+.card:nth-child(3), .image-gallery-grid img:nth-child(3), .patch-gallery img:nth-child(3) { animation-delay: 0.27s; }
+.card:nth-child(4), .image-gallery-grid img:nth-child(4), .patch-gallery img:nth-child(4) { animation-delay: 0.39s; }
+.card:nth-child(5), .image-gallery-grid img:nth-child(5), .patch-gallery img:nth-child(5) { animation-delay: 0.54s; }
+
+/* Card, Grid, Image Transitions and Hovers */
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: 0 8px 18px var(--card-shadow);
   display: flex; flex-direction: column;
   overflow: hidden;
-  transition: transform 0.28s cubic-bezier(.38,.98,.56,1.19), box-shadow 0.22s;
+  position: relative;
+  transition: transform 0.34s cubic-bezier(.34,.87,.54,1.13), box-shadow 0.36s, border 0.36s;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -100%; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(67,176,71,0.12), transparent);
+  transition: 0.6s;
+  z-index: 1;
+  pointer-events:none;
+}
+.card:hover::before {
+  top: 100%;
 }
 .card:hover {
-  transform: translateY(-11px) scale(1.035) rotate(-0.7deg);
-  box-shadow: 0 24px 44px #43b04766, 0 7px 40px #2e774786;
-  filter: brightness(1.08) drop-shadow(0 6px 40px #2196f340);
+  transform: translateY(-9px) scale(1.04);
+  box-shadow: 0 18px 38px var(--color-primary-green, #43b04744), 0 6px 18px #000a;
+  border: 1.5px solid var(--color-primary-green, #43b04780);
   z-index: 2;
 }
 
-/* Image fade-in and pop for all galleries */
-.image-gallery-grid img, .patch-gallery img, .card img {
-  animation-name: fadeInCard;
-  animation-duration: 0.92s;
-  animation-fill-mode: forwards;
-}
-
 /* Download/Ripple Button with animated effect */
-.btn {
+.btn, button {
   background: var(--color-primary-green);
   border: none;
   padding: 0.62rem 1.22rem;
@@ -162,7 +170,7 @@ body {
   color: #fff;
   font-weight: 800;
   cursor: pointer;
-  transition: background 0.22s, box-shadow 0.2s, transform 0.1s;
+  transition: background 0.3s, color 0.3s, box-shadow 0.45s, transform 0.3s cubic-bezier(.36,.85,.5,1.30);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -170,11 +178,18 @@ body {
   letter-spacing: .01em;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 12px #43b04744;
+  box-shadow: 0 2px 10px var(--color-primary-green, #43b04733);
+  will-change: transform;
 }
-.btn:active {
-  background: var(--color-primary-blue);
-  transform: scale(0.93);
+.btn:hover, button:hover {
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary-green), var(--color-primary-blue));
+  box-shadow: 0 10px 28px var(--color-primary-blue, #2196f344);
+  transform: scale(1.08) rotate(-1.2deg);
+}
+.btn:active, button:active {
+  background: var(--color-primary-orange);
+  transform: scale(0.92);
 }
 .btn:focus-visible {
   outline: 2px solid #ff9800;
@@ -201,5 +216,89 @@ body {
   transition: 0s;
 }
 
-/* --- Rest UI unchanged, keep your modern grid/gallery/footer/news etc. --- */
+/* Inputs and Focus Transitions */
+input, select, textarea {
+  transition: box-shadow 0.33s, border 0.33s, transform 0.23s cubic-bezier(.32,.82,.44,1.40);
+}
+input:focus, select:focus, textarea:focus {
+  border: 1px solid var(--color-primary-blue);
+  box-shadow: 0 0 10px var(--color-primary-blue, #2196f366);
+  transform: scale(1.04);
+}
 
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.07rem;
+  width: 100%;
+  flex-grow: 1;
+}
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.site-header {
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 1rem 1.1rem 0 1.1rem;
+  border-bottom: 2.5px solid var(--color-primary-green);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 1.62rem;
+  font-weight: 900;
+  color: inherit;
+  letter-spacing: 1px;
+  text-shadow: 1px 3px 8px rgba(0,0,0,0.3);
+  margin-left: 0.3rem;
+}
+.hero {
+  background: linear-gradient(135deg, #232323 72%, #282d34 100%);
+  color: #fff;
+  text-align: center;
+  margin: 1.5rem 0 2.2rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.17);
+  padding: 2.2rem 1.2rem 1.6rem 1.2rem;
+  position: relative;
+}
+.hero h2 {
+  font-size: 1.34rem;
+  font-weight: 900;
+  margin-bottom: 0.54rem;
+  letter-spacing: 0.2px;
+}
+@media (min-width: 580px) {
+  .hero h2 { font-size: 2.05rem; }
+  .hero { padding: 3.1rem 2.4rem 2.1rem 2.4rem; }
+}
+.hero p {
+  font-size: 1.07rem;
+  margin-bottom: 1.05rem;
+  max-width: 520px;
+  margin-left: auto; margin-right: auto;
+  color: #eaeaea;
+}
+/* Card/image-grid/gallery/patched/rect-img etc. keep as before, animations already applied */
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .container { padding: 0.55rem; }
+  .site-footer { padding: 0.75rem; font-size: 0.99rem;}
+  .footer-flex { flex-direction: column; gap: 0.35rem; }
+}
+@media (max-width: 900px) {
+  .card-grid, .patch-gallery, .image-gallery-grid { grid-template-columns: 1fr; }
+  .hero .btn { margin-bottom: 0.44rem; display: block;}
+}
+@media (max-width: 500px) {
+  .card img, .rect-img, .patch-img, .patch-gallery img,
+  .image-gallery-grid img { border-radius: 7px 7px 0 0; }
+  .footer-flex { gap: 0.52rem; }
+}
