@@ -9,7 +9,7 @@
   --border-radius: 13px;
 }
 
-/* Splash Screen Swords Animation */
+/* --- Splash Swords Animation --- */
 #splash {
   position: fixed;
   inset: 0;
@@ -21,14 +21,12 @@
   transition: opacity 0.6s cubic-bezier(.85,0,.15,1);
   animation: splashFadein 0.7s;
 }
-
 .sword-intro {
   position: relative;
   width: 230px; height: 170px;
   display: flex;
   align-items: center; justify-content: center;
 }
-
 .sword {
   position: absolute;
   width: 86px;
@@ -36,31 +34,28 @@
   top: 50%; left: 50%;
   opacity: 0;
   filter: drop-shadow(0 2px 16px #40ff9380);
-  transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
-  transition: all 0.75s cubic-bezier(.55,1.6,.85,1);
+  transform: translate(-50%, -50%) scale(1.05);
+  transition: all 0.8s cubic-bezier(.48,1.4,.6,1);
 }
-.left-sword {
-  animation: leftSwordIn 0.95s cubic-bezier(.74,-0.07,.58,1.06) forwards;
+.sword.shown {
+  opacity: 1;
 }
-.right-sword {
-  animation: rightSwordIn 0.95s cubic-bezier(.74,-0.07,.58,1.06) forwards;
+.left-sword { z-index: 1; transform: translate(-50%, -50%) scale(1.05) rotate(-46deg);}
+.right-sword { z-index: 2; transform: translate(-50%, -50%) scale(1.05) rotate(46deg);}
+.sword.move-left {
+  opacity: 0;
+  transform: translate(-250px, 120px) scale(1) rotate(-18deg);
 }
-@keyframes leftSwordIn {
-  0% { opacity: 0; transform: translate(-180px, 70px) scale(1.08) rotate(18deg);}
-  50% { opacity: 1; }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(-46deg);}
+.sword.move-right {
+  opacity: 0;
+  transform: translate(190px, -120px) scale(1) rotate(18deg);
 }
-@keyframes rightSwordIn {
-  0% { opacity: 0; transform: translate(120px, -80px) scale(1.08) rotate(-18deg);}
-  50% { opacity: 1; }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(46deg);}
-}
-.sword.crossed {
-  filter: drop-shadow(0 0 32px #bafff9cc) brightness(1.18);
-  transition: filter 0.33s, transform 0.36s;
+@keyframes splashFadein {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
 }
 
-/* Modern Header/Footer shadow for depth */
+/* --- Header/Footer/General UI --- */
 .site-header, .site-footer {
   box-shadow: 0 7px 28px 0 #0005, 0 -7px 28px 0 #0005;
   animation: fadeSlideDown 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
@@ -72,7 +67,6 @@
   animation: fadeInUp 1.3s cubic-bezier(.32, .72, .47, 1.32) both;
 }
 
-/* Main Body & Container */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -84,14 +78,7 @@ body {
   transition: background 0.28s, color 0.28s;
 }
 
-/* ==========================
-   ANIMATIONS AND TRANSITIONS
-========================== */
-
-@keyframes splashFadein {
-  0% { opacity: 0;}
-  100% { opacity: 1;}
-}
+/* --- Animations and transitions --- */
 @keyframes fadeSlideDown {
   0% {opacity: 0; transform: translateY(-30px);}
   100% {opacity: 1; transform: translateY(0);}
@@ -109,7 +96,7 @@ body {
   100% { opacity: 1; transform: none;}
 }
 
-/* Card and Grid Fluid Wave Fade-In */
+/* --- Card/UI animation (premium feel) --- */
 .card, .image-gallery-grid img, .patch-gallery img {
   opacity: 0;
   transform: translateY(28px) scale(0.97);
@@ -121,7 +108,6 @@ body {
 .card:nth-child(4), .image-gallery-grid img:nth-child(4), .patch-gallery img:nth-child(4) { animation-delay: 0.39s; }
 .card:nth-child(5), .image-gallery-grid img:nth-child(5), .patch-gallery img:nth-child(5) { animation-delay: 0.54s; }
 
-/* Card, Grid, Image Transitions and Hovers */
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -151,7 +137,7 @@ body {
   z-index: 2;
 }
 
-/* Download/Ripple Button with animated effect */
+/* --- Buttons --- */
 .btn, button {
   background: var(--color-primary-green);
   border: none;
@@ -207,6 +193,7 @@ body {
   transition: 0s;
 }
 
+/* --- Inputs and Focus Transitions --- */
 input, select, textarea {
   transition: box-shadow 0.33s, border 0.33s, transform 0.23s cubic-bezier(.32,.82,.44,1.40);
 }
@@ -216,6 +203,7 @@ input:focus, select:focus, textarea:focus {
   transform: scale(1.04);
 }
 
+/* --- Layout --- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -274,8 +262,8 @@ input:focus, select:focus, textarea:focus {
   margin-left: auto; margin-right: auto;
   color: #eaeaea;
 }
-/* Card/image-grid/gallery/patched/rect-img etc. keep as before, animations already applied */
 
+/* --- Responsive --- */
 @media (max-width: 700px) {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
