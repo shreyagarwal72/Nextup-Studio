@@ -3,9 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Addons - Nextup Studio</title>
+  <title>Minecraft Bedrock Java Addons Download | Nextup Studio</title>
+  <meta name="description" content="Download Minecraft Bedrock Java Addons (Combat, Saturation, Dynamic Lighting, Offhand, Actions) with advanced animation. Direct, safe MCAddon downloads for mobile and Windows 10!">
+  <meta name="keywords" content="minecraft bedrock java addons download, java combat addon, dynamic lighting, bedrock pvp, java saturation mcaddon, useful offhand, nextup studio addons, minecraft resource packs, .mcaddon download">
+  <meta property="og:title" content="Minecraft Bedrock Java Addons Download | Nextup Studio">
+  <meta property="og:description" content="Get Java Combat, Saturation, Dynamic Lighting, Offhand and Action Addons for Minecraft Bedrock Edition. Fast and free downloads from Nextup Studio.">
+  <meta property="og:image" content="images/2.gif">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arwal72.github.io/addons.html">
+
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Only appearance overrides to ensure full animation: */
+    .card, .card img {
+      opacity: 0;
+      transform: translateY(28px) scale(0.97);
+      animation: cardFade 0.67s cubic-bezier(.3,.72,.22,1.38) forwards;
+    }
+    .card:nth-child(1), .card-grid article:nth-child(1) { animation-delay: 0.06s; }
+    .card:nth-child(2), .card-grid article:nth-child(2) { animation-delay: 0.18s; }
+    .card:nth-child(3), .card-grid article:nth-child(3) { animation-delay: 0.33s; }
+    .card:nth-child(4), .card-grid article:nth-child(4) { animation-delay: 0.47s; }
+    .card:nth-child(5), .card-grid article:nth-child(5) { animation-delay: 0.58s; }
+    @keyframes cardFade {
+      0% { opacity: 0; transform: translateY(24px) scale(0.95);}
+      100% { opacity: 1; transform: none;}
+    }
+    .card {
+      transition: transform 0.34s cubic-bezier(.34,.87,.54,1.13), box-shadow 0.36s, border 0.36s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -100%; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(67,176,71,0.10), transparent);
+      transition: 0.6s;
+      z-index: 1;
+      pointer-events:none;
+    }
+    .card:hover::before { top: 100%; }
+    .card:hover {
+      transform: translateY(-8px) scale(1.045);
+      box-shadow: 0 18px 38px #43b0473a, 0 6px 18px #0007;
+      border: 1.2px solid #43b0476a;
+      z-index: 2;
+    }
+    .btn {
+      transition: background 0.3s, color 0.3s, box-shadow 0.42s, transform 0.28s cubic-bezier(.36,.85,.5,1.30);
+      will-change: transform;
+      box-shadow: 0 2px 10px #43b04733;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #43b047, #2196f3);
+      box-shadow: 0 10px 28px #2196f344;
+      transform: scale(1.08) rotate(-1.2deg);
+    }
+    .btn:active {
+      background: #ff9800;
+      transform: scale(0.92);
+    }
+  </style>
 </head>
 <body>
 
@@ -17,52 +77,51 @@
 
 <main class="container main-content">
   <section class="featured-section">
-    <h3>Available Addons</h3>
+    <h2>Minecraft Bedrock Edition Java Addons & Mods Download</h2>
     <div class="card-grid">
 
       <article class="card">
-        <img src="images/2.gif" alt="Java Combat Addon Preview" />
-        <h4>Java Combat Addon</h4>
-        <p>Enhances combat mechanics with new weapons and effects inspired by Java Edition gameplay.</p>
-        <a class="btn" href="addons/Raiyon Java combat.mcaddon" download>Download</a>
+        <img src="images/2.gif" alt="Java Combat Addon MCAddon Download - Bedrock" />
+        <h3>Java Combat Addon</h3>
+        <p>Enhance your Bedrock combat with new weapons and Java Edition-style effects. Includes sweeping, shield blocking, instant attack speeds, and more! Perfect for PvP and vanilla+ fans.</p>
+        <a class="btn" href="addons/Raiyon Java combat.mcaddon" download>Download Java Combat Addon</a>
       </article>
 
       <article class="card">
-        <img src="images/1.gif" alt="Java Saturation Addon Preview" />
-        <h4>Java Saturation Addon</h4>
-        <p>Improves hunger and saturation mechanics mimicking Java Edition for Bedrock players.</p>
-        <a class="btn" href="addons/Raiyon's Java Saturation.mcaddon" download>Download</a>
+        <img src="images/1.gif" alt="Java Saturation Addon MCAddon Download" />
+        <h3>Java Saturation Addon</h3>
+        <p>Get true Java Edition hunger & saturation mechanics in Minecraft Bedrock. Never worry about unfair food loss again. Plug and play!</p>
+        <a class="btn" href="addons/Raiyon's Java Saturation.mcaddon" download>Download Java Saturation Addon</a>
       </article>
       
       <article class="card">
-        <img src="images/3.jpeg" alt="Actions and Stuff Addon Preview" />
-        <h4>Actions and Stuff Addon</h4>
-        <p>A resource pack with many new animations, custom mob behaviors, and UI enhancements for a unique Minecraft experience.</p>
-        <a class="btn" href="addons/Action" download>Download</a>
+        <img src="images/3.jpeg" alt="Actions and Stuff Addon Preview - Custom Animations" />
+        <h3>Actions and Stuff Addon</h3>
+        <p>Tons of new animations, custom mob behaviors, advanced UI options, and creative tweaks. Make your world look and play like a pro modpack — no scripting needed!</p>
+        <a class="btn" href="addons/Action" download>Download Actions and Stuff Addon</a>
       </article>
 
       <article class="card">
-        <img src="images/4.jpg" alt="Raiyon Dynamic Lighting Addon Preview" />
-        <h4>Raiyon Dynamic Lighting</h4>
-        <p>Bring your world to life with realistic, moving light sources! Hold torches, lanterns, or fiery blocks and watch the area around you brighten dynamically, just like Java edition mods.</p>
-        <a class="btn" href="Addons/Dynamic-Lightning.mcaddon" download>Download</a>
+        <img src="images/4.jpg" alt="Dynamic Lighting Addon for Minecraft Bedrock Windows/Android" />
+        <h3>Raiyon Dynamic Lighting</h3>
+        <p>Real moving light sources! Hold a torch, lantern, or even fire and the world around you lights up instantly. The best Bedrock dynamic lighting, inspired by Java mods.</p>
+        <a class="btn" href="Addons/Dynamic-Lightning.mcaddon" download>Download Dynamic Lighting</a>
       </article>
 
-      <!-- New Addon: Raiyon's Useful Offhand Addon -->
       <article class="card">
-        <img src="images/5.gif" alt="Raiyon's Useful Offhand Addon Preview" />
-        <h4>Raiyon's Useful Offhand Addon</h4>
-        <p>Unlock dual wielding on Bedrock! Use shields, totems, arrows, food, and more in your offhand for a Java-like experience. Great for PvP and advanced survival gameplay.</p>
-        <a class="btn" href="Addons/Raiyon.mcaddon" download>Download</a>
+        <img src="images/5.gif" alt="Raiyon Useful Offhand Addon - Bedrock MCAddon" />
+        <h3>Raiyon's Useful Offhand Addon</h3>
+        <p>Real dual wielding in Bedrock Edition! Use shields, food, totems, arrows, and more in your offhand — just like Minecraft Java Edition. Perfect for PvP pros.</p>
+        <a class="btn" href="Addons/Raiyon.mcaddon" download>Download Useful Offhand Addon</a>
       </article>
 
     </div>
   </section>
 
   <section>
-    <h3>How to Install Addons</h3>
+    <h2>How to Install Minecraft Addons</h2>
     <p>
-      Download the <code>.mcaddon</code> files above, then open them on your device. Minecraft will import these automatically under Behavior & Resource Packs.
+      Download the <code>.mcaddon</code> files above, then just open them on your device. <b>Minecraft Bedrock will auto-import</b> these addons under Behavior & Resource Packs.
     </p>
   </section>
 </main>
@@ -77,109 +136,5 @@
     </div>
   </div>
 </footer>
-
-<style>
-  body {
-    background: #181818;
-    color: #eaeaea;
-  }
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.1rem;
-    margin-bottom: 2rem;
-  }
-  .card {
-    background: #242526;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.09);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .card:hover {
-    transform: translateY(-7px) scale(1.02);
-    box-shadow: 0 14px 24px rgba(0,0,0,0.11);
-  }
-  .card img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    background: #222;
-    display: block;
-    border-bottom: 2px solid #43b047;
-  }
-  .card h4 {
-    font-size: 1.11rem;
-    font-weight: 800;
-    margin: 1rem 1rem 0.32rem 1rem;
-    color: #2196f3;
-    transition: color 0.21s;
-  }
-  .card:hover h4 { color: #43b047;}
-  .card p {
-    font-size: 0.98rem;
-    color: #c5c5c5;
-    margin: 0 1rem 1.1rem;
-    line-height: 1.43;
-    flex-grow: 1;
-  }
-  .btn {
-    background: #43b047;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    margin: 0 1rem 1rem;
-    border-radius: 7px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.21s;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-  }
-  .btn:hover {
-    background: #ff9800;
-  }
-  .btn:active {
-    background: #2196f3;
-  }
-  .site-footer {
-    background: #181818;
-    color: #adadad;
-    text-align: center;
-    padding: 1rem 1.25rem;
-    border-top: 2.5px solid #43b047;
-    margin-top: 2rem;
-  }
-  .footer-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .social-icons a {
-    color: #bbb;
-    font-size: 1.3rem;
-    margin: 0 0.45rem;
-    transition: color 0.25s;
-    text-decoration: none;
-  }
-  .social-icons a:hover {
-    color: #ff9800;
-  }
-  @media (max-width: 500px) {
-    .container { padding: 0.35rem; }
-    .card img { aspect-ratio: 1/1; }
-    .site-footer { padding: 0.7rem; font-size: 0.97rem;}
-    .footer-flex { flex-direction: column; gap: 0.3rem; }
-  }
-  @media (max-width: 768px) {
-    .card-grid { grid-template-columns: 1fr; }
-  }
-</style>
-
 </body>
 </html>
