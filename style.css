@@ -9,7 +9,7 @@
   --border-radius: 13px;
 }
 
-/* --- Splash Swords Animation --- */
+/* Splash Swords Animation */
 #splash {
   position: fixed;
   inset: 0;
@@ -29,33 +29,33 @@
 }
 .sword {
   position: absolute;
-  width: 86px;
+  width: 90px;
   height: auto;
   top: 50%; left: 50%;
   opacity: 0;
-  filter: drop-shadow(0 2px 16px #40ff9380);
+  filter: drop-shadow(0 2px 18px #40ff9380);
   transform: translate(-50%, -50%) scale(1.05);
-  transition: all 0.8s cubic-bezier(.48,1.4,.6,1);
+  transition: all 0.85s cubic-bezier(.48,1.4,.6,1);
 }
 .sword.shown {
   opacity: 1;
 }
-.left-sword { z-index: 1; transform: translate(-50%, -50%) scale(1.05) rotate(-46deg);}
-.right-sword { z-index: 2; transform: translate(-50%, -50%) scale(1.05) rotate(46deg);}
-.sword.move-left {
+.left-sword { z-index: 1; transform: translate(-50%, -50%) scale(1.07) rotate(-46deg);}
+.right-sword { z-index: 2; transform: translate(-50%, -50%) scale(1.07) rotate(46deg);}
+.sword.move-left  {
   opacity: 0;
-  transform: translate(-250px, 120px) scale(1) rotate(-18deg);
+  transform: translate(-240px, 110px) scale(1.04) rotate(-16deg);
 }
 .sword.move-right {
   opacity: 0;
-  transform: translate(190px, -120px) scale(1) rotate(18deg);
+  transform: translate(190px, -110px) scale(1.04) rotate(16deg);
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
   100% { opacity: 1;}
 }
 
-/* --- Header/Footer/General UI --- */
+/* Header/Footer/General UI */
 .site-header, .site-footer {
   box-shadow: 0 7px 28px 0 #0005, 0 -7px 28px 0 #0005;
   animation: fadeSlideDown 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
@@ -78,7 +78,7 @@ body {
   transition: background 0.28s, color 0.28s;
 }
 
-/* --- Animations and transitions --- */
+/* Animations and transitions */
 @keyframes fadeSlideDown {
   0% {opacity: 0; transform: translateY(-30px);}
   100% {opacity: 1; transform: translateY(0);}
@@ -96,7 +96,7 @@ body {
   100% { opacity: 1; transform: none;}
 }
 
-/* --- Card/UI animation (premium feel) --- */
+/* Card and Grid Fluid Wave Fade-In */
 .card, .image-gallery-grid img, .patch-gallery img {
   opacity: 0;
   transform: translateY(28px) scale(0.97);
@@ -137,7 +137,7 @@ body {
   z-index: 2;
 }
 
-/* --- Buttons --- */
+/* Buttons */
 .btn, button {
   background: var(--color-primary-green);
   border: none;
@@ -173,7 +173,6 @@ body {
   outline-offset: 1.5px;
 }
 .btn::after {
-  /* Ripple pulse */
   content: "";
   display: block;
   position: absolute;
@@ -193,7 +192,6 @@ body {
   transition: 0s;
 }
 
-/* --- Inputs and Focus Transitions --- */
 input, select, textarea {
   transition: box-shadow 0.33s, border 0.33s, transform 0.23s cubic-bezier(.32,.82,.44,1.40);
 }
@@ -203,7 +201,6 @@ input:focus, select:focus, textarea:focus {
   transform: scale(1.04);
 }
 
-/* --- Layout --- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -263,7 +260,7 @@ input:focus, select:focus, textarea:focus {
   color: #eaeaea;
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 700px) {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
