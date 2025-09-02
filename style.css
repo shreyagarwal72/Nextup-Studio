@@ -9,7 +9,7 @@
   --border-radius: 13px;
 }
 
-/* Splash Screen ----------------------------------- */
+/* Splash Screen Swords Animation */
 #splash {
   position: fixed;
   inset: 0;
@@ -19,53 +19,46 @@
   align-items: center;
   justify-content: center;
   transition: opacity 0.6s cubic-bezier(.85,0,.15,1);
-  animation: splashFadein 0.68s;
+  animation: splashFadein 0.7s;
 }
-.splash-logo {
+
+.sword-intro {
+  position: relative;
+  width: 230px; height: 170px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw; height: 100vh;
-  animation: logoPop 1.07s cubic-bezier(.22,.86,.39,1.08);
+  align-items: center; justify-content: center;
 }
-.splash-logo img {
-  width: 38vw;
-  min-width: 148px;
-  max-width: 350px;
+
+.sword {
+  position: absolute;
+  width: 86px;
   height: auto;
-  box-shadow:
-    0 0 40px 10px #43b047cc,
-    0 0 120px 46px #2196f344,
-    0 0 7px 0 #171a40;
-  border-radius: 22px;
-  animation: logoGlowScale 2.25s cubic-bezier(.57,1,.44,1.08) infinite alternate;
-  filter: drop-shadow(0 0 22px #aafe85f4) drop-shadow(0 0 4px #2a4623e0);
-  image-rendering: auto;
-  object-fit: contain;
+  top: 50%; left: 50%;
+  opacity: 0;
+  filter: drop-shadow(0 2px 16px #40ff9380);
+  transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  transition: all 0.75s cubic-bezier(.55,1.6,.85,1);
 }
-@keyframes logoPop {
-  0% { transform: scale(0.16) rotate(-16deg); opacity: 0; }
-  68% { transform: scale(1.16) rotate(6deg); opacity: 1;}
-  92% { transform: scale(0.97) rotate(-1deg);}
-  100% { transform: scale(1) rotate(0deg);}
+.left-sword {
+  animation: leftSwordIn 0.95s cubic-bezier(.74,-0.07,.58,1.06) forwards;
 }
-@keyframes logoGlowScale {
-  0% {
-    box-shadow: 0 0 30px 10px #aafe85c1, 0 0 50px 18px #2196f388, 0 1px 17px #173414;
-    filter: drop-shadow(0 0 31px #b3ffb6ed) brightness(1.09);
-    transform: scale(1) rotate(0deg);
-  }
-  100% {
-    box-shadow: 0 0 100px 26px #43b04799, 0 0 160px 50px #2196f36c, 0 2px 37px #12321a;
-    filter: drop-shadow(0 0 44px #edffb105) brightness(1.19);
-    transform: scale(1.07) rotate(-2deg);
-  }
+.right-sword {
+  animation: rightSwordIn 0.95s cubic-bezier(.74,-0.07,.58,1.06) forwards;
 }
-@keyframes splashFadein {
-  0% { opacity: 0;}
-  100% { opacity: 1;}
+@keyframes leftSwordIn {
+  0% { opacity: 0; transform: translate(-180px, 70px) scale(1.08) rotate(18deg);}
+  50% { opacity: 1; }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(-46deg);}
 }
-body:has(#splash) { overflow: hidden !important; }
+@keyframes rightSwordIn {
+  0% { opacity: 0; transform: translate(120px, -80px) scale(1.08) rotate(-18deg);}
+  50% { opacity: 1; }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(46deg);}
+}
+.sword.crossed {
+  filter: drop-shadow(0 0 32px #bafff9cc) brightness(1.18);
+  transition: filter 0.33s, transform 0.36s;
+}
 
 /* Modern Header/Footer shadow for depth */
 .site-header, .site-footer {
@@ -95,6 +88,10 @@ body {
    ANIMATIONS AND TRANSITIONS
 ========================== */
 
+@keyframes splashFadein {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
 @keyframes fadeSlideDown {
   0% {opacity: 0; transform: translateY(-30px);}
   100% {opacity: 1; transform: translateY(0);}
@@ -110,12 +107,6 @@ body {
 @keyframes cardFade {
   0% { opacity: 0; transform: translateY(24px) scale(0.95);}
   100% { opacity: 1; transform: none;}
-}
-@keyframes fadeInCard {
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* Card and Grid Fluid Wave Fade-In */
@@ -216,7 +207,6 @@ body {
   transition: 0s;
 }
 
-/* Inputs and Focus Transitions */
 input, select, textarea {
   transition: box-shadow 0.33s, border 0.33s, transform 0.23s cubic-bezier(.32,.82,.44,1.40);
 }
@@ -225,7 +215,6 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 10px var(--color-primary-blue, #2196f366);
   transform: scale(1.04);
 }
-
 
 .container {
   max-width: 1100px;
@@ -287,7 +276,6 @@ input:focus, select:focus, textarea:focus {
 }
 /* Card/image-grid/gallery/patched/rect-img etc. keep as before, animations already applied */
 
-/* Responsive Design */
 @media (max-width: 700px) {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
