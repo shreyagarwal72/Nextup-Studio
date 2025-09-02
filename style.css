@@ -34,29 +34,28 @@
   top: 50%; left: 50%;
   opacity: 0;
   filter: drop-shadow(0 2px 18px #40ff9380);
-  /* Default: crossed shape (X/⚔️) using rotate! */
+  /* Default: crossed shape (X/⚔️) using rotate and custom X alignment */
   transition: all 0.85s cubic-bezier(.48,1.4,.6,1);
 }
 .sword.shown {
   opacity: 1;
 }
+/* Custom tune to align swords if PNGs are left/right shifted */
 .left-sword {
   z-index: 1;
-  transform: translate(-50%, -50%) scale(1.07) rotate(-46deg);
+  transform: translate(-62%, -50%) scale(1.07) rotate(-62deg);
 }
 .right-sword {
   z-index: 2;
-  transform: translate(-50%, -50%) scale(1.07) rotate(46deg);
+  transform: translate(-38%, -50%) scale(1.07) rotate(62deg);
 }
 .sword.move-left  {
   opacity: 0;
-  /* Move left, flatten a bit */
-  transform: translate(-240px, 110px) scale(1.04) rotate(-16deg);
+  transform: translate(-240px, 110px) scale(1.04) rotate(-24deg);
 }
 .sword.move-right {
   opacity: 0;
-  /* Move right, flatten a bit */
-  transform: translate(190px, -110px) scale(1.04) rotate(16deg);
+  transform: translate(190px, -110px) scale(1.04) rotate(24deg);
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
