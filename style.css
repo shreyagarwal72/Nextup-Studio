@@ -86,6 +86,41 @@
   100% { filter: drop-shadow(0 0 68px #3afff9cc) drop-shadow(0 0 42px #a5ffcc99);}
 }
 
+/* ---------- PREVIEW IMAGE GALLERY (MC PAGE) ---------- */
+.image-gallery-grid {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  margin: 0 auto 36px auto;
+  flex-wrap: wrap;
+}
+.image-gallery-grid img {
+  width: 44%;
+  max-width: 210px;
+  border-radius: 15px;
+  box-shadow: 0 3px 25px #2196f355;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  animation: cardFade 0.68s cubic-bezier(.3,.72,.22,1.38) forwards;
+}
+.image-gallery-grid img:nth-child(1) { animation-delay: 0.04s; }
+.image-gallery-grid img:nth-child(2) { animation-delay: 0.16s; }
+@media (max-width: 700px) {
+  .image-gallery-grid { gap: 8vw; }
+  .image-gallery-grid img { width: 92vw; max-width: 460px; }
+  .sword-intro { width: 220px; height: 180px; }
+  .sword { width: 110px; }
+}
+@media (min-width: 701px) {
+  .image-gallery-grid img { width: 44%; }
+  .sword-intro { width: 380px; height: 370px; }
+  .sword { width: 190px; }
+}
+@media (max-width: 550px) {
+  .image-gallery-grid { flex-direction: column; align-items: center; }
+  .image-gallery-grid img { width: 98vw; max-width: 98vw; }
+}
+
 /* ---------- HEADER/FOOTER/MAIN HERO ANIMATION ---------- */
 .site-header,
 .site-footer {
@@ -124,16 +159,16 @@ body {
 }
 
 /* ---------- CARDS, GALLERY, AND SECTION ENTRY ---------- */
-.card, .image-gallery-grid img, .patch-gallery img {
+.card, .patch-gallery img {
   opacity: 0;
   transform: translateY(38px) scale(0.97);
   animation: cardFade var(--fadein-duration) cubic-bezier(.3,.72,.22,1.38) forwards;
 }
-.card:nth-child(1), .image-gallery-grid img:nth-child(1), .patch-gallery img:nth-child(1) { animation-delay: 0s; }
-.card:nth-child(2), .image-gallery-grid img:nth-child(2), .patch-gallery img:nth-child(2) { animation-delay: var(--card-fade-delay);}
-.card:nth-child(3), .image-gallery-grid img:nth-child(3), .patch-gallery img:nth-child(3) { animation-delay: calc(var(--card-fade-delay) * 2);}
-.card:nth-child(4), .image-gallery-grid img:nth-child(4), .patch-gallery img:nth-child(4) { animation-delay: calc(var(--card-fade-delay) * 3);}
-.card:nth-child(5), .image-gallery-grid img:nth-child(5), .patch-gallery img:nth-child(5) { animation-delay: calc(var(--card-fade-delay) * 4);}
+.card:nth-child(1), .patch-gallery img:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2), .patch-gallery img:nth-child(2) { animation-delay: var(--card-fade-delay);}
+.card:nth-child(3), .patch-gallery img:nth-child(3) { animation-delay: calc(var(--card-fade-delay) * 2);}
+.card:nth-child(4), .patch-gallery img:nth-child(4) { animation-delay: calc(var(--card-fade-delay) * 3);}
+.card:nth-child(5), .patch-gallery img:nth-child(5) { animation-delay: calc(var(--card-fade-delay) * 4);}
 @keyframes cardFade {
   0% { opacity: 0; transform: translateY(34px) scale(0.95);}
   100% { opacity: 1; transform: none;}
@@ -306,12 +341,6 @@ input:focus, select:focus, textarea:focus {
   .container { padding: 0.55rem; }
   .site-footer { padding: 0.75rem; font-size: 0.99rem;}
   .footer-flex { flex-direction: column; gap: 0.35rem; }
-  .sword-intro { width: 220px; height: 180px; }
-  .sword { width: 110px; }
-}
-@media (min-width: 701px) {
-  .sword-intro { width: 380px; height: 370px; }
-  .sword { width: 190px; }
 }
 @media (max-width: 900px) {
   .card-grid, .patch-gallery, .image-gallery-grid { grid-template-columns: 1fr; }
