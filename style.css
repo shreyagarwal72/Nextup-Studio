@@ -23,18 +23,19 @@
 }
 .sword-intro {
   position: relative;
-  width: 220px; height: 180px;
+  width: 220px;
+  height: 180px;
   display: flex;
   align-items: center; justify-content: center;
 }
 .sword {
   position: absolute;
   left: 50%; top: 50%;
-  width: 100px;
+  width: 110px;
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 2px 18px #40ff9380);
-  transform: translate(-50%, -50%) scale(1.12) rotate(0deg);
+  transform: translate(-50%, -56%) scale(1.18) rotate(0deg);
   transition: all 0.8s cubic-bezier(.48,1.4,.6,1);
 }
 .sword.shown {
@@ -42,19 +43,28 @@
 }
 .left-sword {
   z-index: 1;
-  transform: translate(-50%, -50%) scale(1.12) rotate(-62deg);
+  transform: translate(-50%, -56%) scale(1.18) rotate(-62deg);
 }
 .right-sword {
   z-index: 2;
-  transform: translate(-50%, -50%) scale(1.12) rotate(62deg);
+  transform: translate(-50%, -56%) scale(1.18) rotate(62deg);
 }
 .sword.move-left  {
   opacity: 0;
-  transform: translate(-240px, 120px) scale(1.05) rotate(-18deg);
+  transform: translate(-260px, 110px) scale(1.08) rotate(-18deg);
 }
 .sword.move-right {
   opacity: 0;
-  transform: translate(170px, -120px) scale(1.05) rotate(18deg);
+  transform: translate(210px, -110px) scale(1.08) rotate(18deg);
+}
+@media (min-width: 700px) {
+  .sword-intro {
+    width: 380px;
+    height: 370px;
+  }
+  .sword {
+    width: 190px;
+  }
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
