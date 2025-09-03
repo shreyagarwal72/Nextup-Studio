@@ -197,6 +197,8 @@ body {
 .card:nth-child(3), .patch-gallery img:nth-child(3) { animation-delay: calc(var(--card-fade-delay) * 2);}
 .card:nth-child(4), .patch-gallery img:nth-child(4) { animation-delay: calc(var(--card-fade-delay) * 3);}
 .card:nth-child(5), .patch-gallery img:nth-child(5) { animation-delay: calc(var(--card-fade-delay) * 4);}
+.card:nth-child(6), .patch-gallery img:nth-child(6) { animation-delay: calc(var(--card-fade-delay) * 5);}
+.card:nth-child(7), .patch-gallery img:nth-child(7) { animation-delay: calc(var(--card-fade-delay) * 6);}
 @keyframes cardFade {
   0% { opacity: 0; transform: translateY(34px) scale(0.95);}
   100% { opacity: 1; transform: none;}
