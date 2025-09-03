@@ -15,6 +15,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="logo/3.png">
   <link rel="icon" href="logo/3.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -117,6 +119,33 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => splash.remove(), 600);
   }, 1900);
 });
+</script>
+
+<!-- PWA INSTALL BUTTON AND SERVICE WORKER -->
+<button id="installAppBtn" class="btn" style="display:none;position:fixed;bottom:2em;right:2em;z-index:4000;">Install App</button>
+<script>
+// PWA Install button logic
+let deferredPrompt;
+const installBtn = document.getElementById('installAppBtn');
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  installBtn.style.display = 'none';
+}
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBtn.style.display = 'none';
+  }
+});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
 </script>
 </body>
 </html>
