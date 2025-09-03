@@ -71,10 +71,6 @@
   transform: translate(210px, -110px) scale(1.08) rotate(18deg);
   transition: opacity 0.35s, filter 0.46s, transform 0.83s cubic-bezier(.47,1.43,.31,1.09);
 }
-@media (min-width: 700px) {
-  .sword-intro { width: 380px; height: 370px; }
-  .sword { width: 192px; }
-}
 
 @keyframes splashFadein {
   0% { opacity: 0;}
@@ -127,8 +123,10 @@
   box-shadow: 0 7px 28px 0 #0005, 0 -7px 28px 0 #0005;
   animation: fadeSlideDown 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
 }
-.site-header h1 {
+.site-header h1, .logo {
   animation: textGlow 2.4s cubic-bezier(.4,.9,.8,1.4) infinite alternate;
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 .hero {
   animation: fadeInUp 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
@@ -145,6 +143,36 @@ body {
   transition: background 0.28s, color 0.28s;
 }
 
+/* ---------- DESKTOP OPTIMIZATION ---------- */
+@media (min-width: 900px) {
+  .container {
+    max-width: 1200px;
+    padding: 2.4rem 2rem 1rem 2rem;
+  }
+  .hero {
+    padding: 3.7rem 2.6rem 2.2rem 2.6rem;
+    font-size: 1.21rem;
+  }
+  .hero h2 { font-size: 2.4rem; }
+  .hero p { max-width: 700px; font-size: 1.22rem; }
+  .featured-section .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+  }
+  .card {
+    min-width: 340px;
+    font-size: 1.13rem;
+  }
+  .image-gallery-grid { gap: 38px; }
+  .image-gallery-grid img { max-width: 280px; width: 48%; }
+  .btn, button {
+    font-size: 1.09rem;
+    padding: 0.78rem 1.5rem;
+  }
+}
+
+/* ---------- TRANSITION ANIMATIONS ---------- */
 @keyframes fadeSlideDown {
   0% { opacity: 0; transform: translateY(-30px);}
   100% { opacity: 1; transform: translateY(0);}
@@ -304,6 +332,8 @@ input:focus, select:focus, textarea:focus {
   letter-spacing: 1px;
   text-shadow: 1px 3px 8px rgba(0,0,0,0.3);
   margin-left: 0.3rem;
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 .hero {
   background: linear-gradient(135deg, #232323 72%, #282d34 100%);
