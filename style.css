@@ -23,42 +23,38 @@
 }
 .sword-intro {
   position: relative;
-  width: 230px; height: 170px;
+  width: 220px; height: 180px;
   display: flex;
   align-items: center; justify-content: center;
 }
 .sword {
   position: absolute;
   left: 50%; top: 50%;
-  width: 90px;
+  width: 100px;
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 2px 18px #40ff9380);
-  /* No translate; PNG placement is natural */
-  transition: all 0.85s cubic-bezier(.48,1.4,.6,1);
+  transform: translate(-50%, -50%) scale(1.12) rotate(0deg);
+  transition: all 0.8s cubic-bezier(.48,1.4,.6,1);
 }
 .sword.shown {
   opacity: 1;
 }
 .left-sword {
   z-index: 1;
-  /* Only rotate for cross (adjust angle if needed) */
-  transform: scale(1.07) rotate(-62deg);
+  transform: translate(-50%, -50%) scale(1.12) rotate(-62deg);
 }
 .right-sword {
   z-index: 2;
-  /* Only rotate for cross (adjust angle if needed) */
-  transform: scale(1.07) rotate(62deg);
+  transform: translate(-50%, -50%) scale(1.12) rotate(62deg);
 }
 .sword.move-left  {
   opacity: 0;
-  /* Move left out, less rotate for exit */
-  transform: scale(1.05) rotate(-24deg);
+  transform: translate(-240px, 120px) scale(1.05) rotate(-18deg);
 }
 .sword.move-right {
   opacity: 0;
-  /* Move right out, less rotate for exit */
-  transform: scale(1.05) rotate(24deg);
+  transform: translate(170px, -120px) scale(1.05) rotate(18deg);
 }
 @keyframes splashFadein {
   0% { opacity: 0;}
