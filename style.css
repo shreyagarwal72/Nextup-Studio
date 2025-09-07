@@ -30,8 +30,7 @@
   display: flex; align-items: center; justify-content: center;
   animation: fadeInUp var(--fadein-duration) cubic-bezier(.38,1.1,.43,1.13) both;
 }
-
-/* Start: baseline */
+/* Swords baseline and keyframes... (unchanged, as in your current version) */
 .sword {
   position: absolute;
   left: 50%; top: 50%;
@@ -42,22 +41,18 @@
   transform: translate(-50%, -56%) scale(0.5) rotate(0deg);
   will-change: opacity, transform, filter;
 }
-
-/* SMOOTH KEYFRAMES ENTRANCE */
 .sword.shown.left-sword {
   animation: swordsCrossLeft 0.84s cubic-bezier(.62,1.45,.28,1) forwards;
 }
 .sword.shown.right-sword {
   animation: swordsCrossRight 0.84s cubic-bezier(.62,1.45,.28,1) forwards;
 }
-/* SMOOTH KEYFRAMES EXIT */
 .sword.exit.left-sword {
   animation: swordsExitLeft 1.1s cubic-bezier(.32,1.16,.37,1.12) forwards;
 }
 .sword.exit.right-sword {
   animation: swordsExitRight 1.1s cubic-bezier(.32,1.16,.37,1.12) forwards;
 }
-
 @keyframes swordsCrossLeft {
   0% { opacity: 0; transform: translate(-50%, -56%) scale(0.5) rotate(-15deg);}
   55% { opacity: 1; }
@@ -87,6 +82,44 @@
   100% { opacity: 1; transform: translateY(0);}
 }
 
+/* ---------- SHADER LANDSCAPE PREVIEW SUPPORT ---------- */
+.shader-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.2rem 1rem 1.2rem 1rem;
+  background: linear-gradient(135deg, #222 60%, #243146 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+  margin: 2.1rem auto 1.3rem auto;
+  max-width: 900px;
+  text-align: center;
+}
+.shader-hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #29d8ff;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 1px 25px #0082e944;
+}
+.shader-preview-img {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 0 auto 1.4rem auto;
+  box-shadow: 0 6px 36px #0fefff22, 0 2px 14px #161d29cc;
+  background: #131b1e;
+  display: block;
+  animation: cardFade 1s cubic-bezier(.38,1.3,.31,1.03) both;
+}
+@media (max-width: 850px) {
+  .shader-hero { max-width: 98vw; padding: 1.2rem 0.2rem; }
+  .shader-preview-img { max-width: 100vw; aspect-ratio: 16/9; }
+}
+
 /* ---------- PREVIEW IMAGE GALLERY (MC PAGE) ---------- */
 .image-gallery-grid {
   display: flex;
@@ -109,13 +142,9 @@
 @media (max-width: 700px) {
   .image-gallery-grid { gap: 8vw; }
   .image-gallery-grid img { width: 92vw; max-width: 460px; }
-  .sword-intro { width: 220px; height: 180px; }
-  .sword { width: 110px; }
 }
 @media (min-width: 701px) {
   .image-gallery-grid img { width: 44%; }
-  .sword-intro { width: 380px; height: 370px; }
-  .sword { width: 190px; }
 }
 @media (max-width: 550px) {
   .image-gallery-grid { flex-direction: column; align-items: center; }
@@ -136,7 +165,6 @@
 .hero {
   animation: fadeInUp 1.2s cubic-bezier(.32, .72, .47, 1.32) both;
 }
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
