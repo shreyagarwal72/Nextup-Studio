@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Download Techno Gamerz Minecraft World & Addons | Nextup Studio</title>
-  <meta name="description" content="Download Techno Gamerz Minecraft World (.mcworld), get premium Bedrock Addons, and explore hand-crafted adventure maps. Nextup Studio delivers everything for Minecraft Bedrock fans with superfast UI and epic swords intro!">
-  <meta name="keywords" content="Minecraft Bedrock download, Techno Gamerz world, Minecraft addons, MCWorld, 1.21.101 patched, custom maps, Nextup Studio, minecraft full version download, Minecraft 1.21.101 original">
+  <meta name="description" content="Download Techno Gamerz Minecraft World (.mcworld), get premium Bedrock Addons, Minecraft Shaders, and explore adventure maps. Nextup Studio delivers everything for Minecraft Bedrock fans with a superfast UI and epic swords intro!">
+  <meta name="keywords" content="Minecraft Bedrock download, Techno Gamerz world, Minecraft shaders, addons, MCWorld, 1.21.101 patched, custom maps, Nextup Studio, Minecraft full version download, Minecraft 1.21.101 original">
   <link rel="canonical" href="https://arwal72.github.io/" />
   <meta property="og:title" content="Download Techno Gamerz Minecraft World & Addons | Nextup Studio">
-  <meta property="og:description" content="Techno Gamerz world and premium Minecraft Bedrock content. Enjoy world-class maps, mods, and a premium swords intro splash—fully responsive and ultra-fast.">
+  <meta property="og:description" content="Techno Gamerz world and premium Minecraft Bedrock content, now including Shaders. Enjoy world-class maps, mods, shaders, and a premium swords intro splash—fully responsive and ultra-fast.">
   <meta property="og:image" content="logo/3.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arwal72.github.io/">
@@ -38,8 +38,8 @@
 <main class="container main-content">
   <section class="hero">
     <h2>Welcome to Nextup Studio!</h2>
-    <p>Your hub for Minecraft worlds, Techno Gamerz World downloads, and feature-rich Bedrock addons.<br>
-    Designed for players seeking adventures, survival, and epic new content.</p>
+    <p>Your hub for Minecraft worlds, Techno Gamerz World downloads, feature-rich Bedrock addons, and stunning shaders.<br>
+    Designed for players seeking adventure, survival, and epic new visuals.</p>
     <div class="hero-actions">
       <a href="myworld.html" class="btn" rel="noopener">Explore My World</a>
       <a href="addons.html" class="btn outlined" rel="noopener">Discover Addons</a>
@@ -74,6 +74,12 @@
         <p>Download the official Minecraft Bedrock 1.21.101 (Android/PC/MCPE). No ads, direct and safe from Nextup Studio.</p>
         <a class="btn" href="mc.html" rel="noopener">Minecraft 1.21.101 Download</a>
       </article>
+      <article class="card">
+        <img class="rect-img" src="images/O.png" alt="Minecraft Shaders Preview" loading="lazy" decoding="async" />
+        <h4>Minecraft Shaders</h4>
+        <p>Transform your Minecraft world with stunning new visuals! Experience better lighting, shadows, and beautiful effects with Bedrock shaders.</p>
+        <a class="btn" href="shader.html" rel="noopener">View Shaders</a>
+      </article>
     </div>
   </section>
 
@@ -81,7 +87,7 @@
     <h3>News & Updates</h3>
     <ul>
       <li><strong>Aug 2025:</strong> Villager Breeder & Hidden Waterfall map released for community download!</li>
-      <li>Try new Addons for improved gameplay and custom UI.</li>
+      <li>Try new Addons for improved gameplay, UI, and shaders.</li>
       <li>Stay tuned for Bedrock tutorials, contests, and fresh maps.</li>
     </ul>
   </section>
@@ -105,14 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const rightSword = document.querySelector('.right-sword');
   const splash = document.getElementById('splash');
   setTimeout(() => {
-    leftSword.classList.add('shown');
-    rightSword.classList.add('shown');
+    leftSword.classList.add('shown', 'left-sword');
+    rightSword.classList.add('shown', 'right-sword');
   }, 100);
   setTimeout(() => {
     leftSword.classList.remove('shown');
     rightSword.classList.remove('shown');
-    leftSword.classList.add('move-left');
-    rightSword.classList.add('move-right');
+    leftSword.classList.add('exit');
+    rightSword.classList.add('exit');
   }, 1200);
   setTimeout(() => {
     splash.style.opacity = 0;
@@ -120,32 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 1900);
 });
 </script>
+<!-- PWA install code remains if you are using PWA features -->
 
-<!-- PWA INSTALL BUTTON AND SERVICE WORKER -->
-<button id="installAppBtn" class="btn" style="display:none;position:fixed;bottom:2em;right:2em;z-index:4000;">Install App</button>
-<script>
-// PWA Install button logic
-let deferredPrompt;
-const installBtn = document.getElementById('installAppBtn');
-if (window.matchMedia('(display-mode: standalone)').matches) {
-  installBtn.style.display = 'none';
-}
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = 'block';
-});
-installBtn.addEventListener('click', async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installBtn.style.display = 'none';
-  }
-});
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js');
-}
-</script>
 </body>
 </html>
