@@ -3,58 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minecraft Solar Shader Download | Nextup Studio</title>
-  <meta name="description" content="Download the Solar Shader for Minecraft Bedrock Edition (.mcpack) with a real 16:9 landscape preview. Stunning visuals from Nextup Studio." />
-  <meta name="keywords" content="Minecraft shader, Solar Shader, Bedrock shaders, mcpack download, Nextup Studio, Minecraft visuals, lighting, Minecraft addon">
-  <meta property="og:title" content="Minecraft Solar Shader Download | Nextup Studio" />
-  <meta property="og:description" content="See how your game shines! Download Solar Shader for Minecraft Bedrock with landscape preview and instant download." />
+  <title>Minecraft Shaders Download | Nextup Studio</title>
+  <meta name="description" content="Download the best Minecraft Bedrock shaders! Solar Shader and Newb Shader both with real 16:9 previews. Instant .mcpack downloads from Nextup Studio." />
+  <meta name="keywords" content="Minecraft shader, Solar Shader, Newb Shader, mcpack download, Bedrock shaders, Nextup Studio, Minecraft visuals, Minecraft lighting, Minecraft addon">
+  <meta property="og:title" content="Minecraft Shaders Download | Nextup Studio" />
+  <meta property="og:description" content="Get the top Bedrock shaders. See 16:9 previews and download .mcpack files direct—Nextup Studio." />
   <meta property="og:image" content="Addons/1.jpeg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://arwal72.github.io/shader.html" />
   <link rel="icon" href="logo/3.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .shader-hero {
+    .shader-page-main {
+      max-width: 1050px;
+      margin: 0 auto 2.5rem auto;
+      padding: 0 0.5rem;
+    }
+    .shader-title {
+      margin-top: 2.2rem;
+      margin-bottom: .4rem;
+      color: #32f2ff;
+      font-size: 2.1rem;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 18px #11d4ee44;
+    }
+    .shader-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin: 2.5rem auto;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .shader-block {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 2.2rem 1rem 1.2rem 1rem;
-      background: linear-gradient(135deg, #222 60%, #243146 100%);
+      background: linear-gradient(120deg, #222 63%, #243146 100%);
       border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.16);
-      margin: 2.1rem auto 1.3rem auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.17);
+      padding: 2rem 1rem 1.25rem 1rem;
+      width: 100%;
       max-width: 900px;
       text-align: center;
+      position: relative;
+      animation: cardFade 1.2s cubic-bezier(.38,1.4,.31,1.12) both;
     }
-    .shader-hero h1 {
-      font-size: 2rem;
-      font-weight: 900;
-      color: #29d8ff;
-      margin-bottom: 1.1rem;
-      text-shadow: 0 1px 25px #0082e944;
-    }
-    .shader-preview-img {
+    .shader-block img {
       width: 100%;
       max-width: 900px;
       aspect-ratio: 16 / 9;
       object-fit: cover;
       border-radius: 14px;
-      margin: 0 auto 1.4rem auto;
+      margin: 0 auto 1.25rem auto;
       box-shadow: 0 6px 36px #0fefff22, 0 2px 14px #161d29cc;
       background: #131b1e;
       display: block;
-      animation: cardFade 1s cubic-bezier(.38,1.3,.31,1.03) both;
     }
-    .shader-hero p {
-      font-size: 1.13rem;
+    .shader-block h2 {
+      color: #15e3ff;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      margin-top: 0.4rem;
+      text-shadow: 0 1px 12px #0e65bf60;
+    }
+    .shader-block p {
+      font-size: 1.07rem;
+      color: #d0f4ff;
       margin-bottom: 1.4rem;
-      color: #c2f3ff;
       text-shadow: 0 2px 10px #1f1e2990;
       max-width: 540px;
       margin-left: auto; margin-right: auto;
     }
-    .shader-btn {
+    .shader-block .shader-btn {
       padding: 0.72rem 2.1rem;
       border-radius: 9px;
       font-size: 1.09rem;
@@ -75,21 +100,23 @@
       color: #fff;
       transform: scale(1.05) rotate(-0.8deg);
     }
-    .shader-hero .social-row {
-      margin-top: 1.2rem;
-      color: #52edff;
-      font-size: 1.12rem;
+    .shader-block .shader-howto {
+      color: #47ecff;
+      font-size: .98em;
+      margin-bottom: 0;
+      margin-top: .5em;
     }
-    .shader-hero .social-row a {
-      margin: 0 0.75em;
-      color: #08eaff;
-      text-decoration: none;
-      transition: color 0.16s;
+    .shader-block .shader-source {
+      color: #29b8e5;
+      margin-top: .35em;
+      font-size: .91em;
     }
-    .shader-hero .social-row a:hover { color: #fff; text-decoration:underline; }
-    @media (max-width: 850px) {
-      .shader-hero { max-width: 98vw; padding: 1.2rem 0.2rem; }
-      .shader-preview-img { max-width: 100vw; aspect-ratio: 16/9; }
+    @media (max-width: 950px) {
+      .shader-block, .shader-block img { max-width: 98vw; }
+    }
+    @media (max-width: 526px) {
+      .shader-block { padding: 0.77rem 0.08rem 0.92rem 0.08rem; }
+      .shader-block img { border-radius: 8px; }
     }
     @keyframes cardFade {
       0% { opacity: 0; transform: translateY(30px) scale(0.96);}
@@ -104,27 +131,46 @@
     </div>
   </header>
   
-  <main>
-    <section class="shader-hero">
-      <h1>Minecraft Solar Shader (Bedrock)</h1>
-      <img src="images/1.jpeg" alt="Minecraft Solar Shader Preview" class="shader-preview-img" loading="eager" decoding="async" />
-      <p>
-        Experience Minecraft like never before!<br>
-        <b>Solar Shader</b> brings realistic lighting, soft shadows, and gorgeous colors for beautiful Minecraft worlds. Perfect for screenshots and adventure—works great on most devices.
-      </p>
-      <a href="Addons/Solar-Shader.mcpack" class="shader-btn" download>
-        Download Shader (.mcpack)
-      </a>
-      <p style="color:#79fdff;font-size:.97em;margin-top:.5em;">
-        <b>How to use:</b> Download & open the .mcpack file in Minecraft Bedrock Edition/PE. Activate it from Resource Packs in your world!
-      </p>
-      <div class="social-row">
-        <span>Follow on </span>
-        <a href="https://instagram.com/vanshu_ag_72" target="_blank" rel="noopener">Instagram</a>
+  <main class="shader-page-main">
+    <div class="shader-title">Minecraft Bedrock Shaders</div>
+    <section class="shader-list">
+
+      <!-- Solar Shader -->
+      <div class="shader-block">
+        <img src="Addons/1.jpeg" alt="Solar Shader Minecraft Preview" loading="eager" decoding="async" />
+        <h2>Solar Shader</h2>
+        <p>
+          Realistic lighting, beautiful colors, and soft shadows—this shader brings sunlight, smooth skies, and better water to Minecraft Bedrock! Great for screenshots and daily playing.
+        </p>
+        <a href="Addons/Solar-Shader.mcpack" class="shader-btn" download>
+          Download Solar Shader (.mcpack)
+        </a>
+        <div class="shader-howto">
+          <b>How to use:</b> Download & open the .mcpack file in Minecraft Bedrock. Enable it from Resource Packs.
+        </div>
       </div>
+
+      <!-- Newb Shader -->
+      <div class="shader-block">
+        <img src="Addons/mcpedl.jpg" alt="Newb Shader Minecraft Preview" loading="lazy" decoding="async" />
+        <h2>Newb Shader</h2>
+        <p>
+          Easy-to-run, clean shader for all devices. Sharper shadows, brighter skies, cool water, and smooth nights. Perfect if you want performance plus better looks!
+        </p>
+        <a href="Addons/Newb.mcpack" class="shader-btn" download>
+          Download Newb Complementary Reimagined Shader (.mcpack)
+        </a>
+        <div class="shader-howto">
+          <b>How to use:</b> Download & open the .mcpack file in Bedrock/PE. Activate from Resource Packs in your world!
+        </div>
+      </div>
+
     </section>
+    <div style="text-align:center;color:#44defe;margin:1.9rem;font-size:1.08em">
+      <b>Follow: </b>
+      <a href="https://instagram.com/vanshu_ag_72" target="_blank" rel="noopener" style="color:#55e6f5;text-decoration:none;">@vanshu_ag_72</a>
+    </div>
   </main>
-  
   <footer class="site-footer" style="background:#161616;padding:18px 0 8px 0;text-align:center;font-size:1rem;border-top:2px solid #0ff;color:#44d2e0;">
     &copy; 2025 Nextup Studio — Minecraft visuals evolved.
   </footer>
