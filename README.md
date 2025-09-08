@@ -1,4 +1,4 @@
-# 🟩 Nextup Studio – Minecraft Worlds, Addons & Shaders
+# Nextup Studio – Minecraft Worlds, Addons & Shaders
 
 Welcome to **Nextup Studio’s Minecraft Hub** 🎮  
 Here you can download **Techno Gamerz Minecraft World (.mcworld)**, explore **premium Bedrock addons**, try **stunning shaders**, and play with **patched/original versions of Minecraft 1.21.101**.  
@@ -38,8 +38,7 @@ Here you can download **Techno Gamerz Minecraft World (.mcworld)**, explore **pr
 
 ## 📺 Connect With Me
 - 🎬 [**YouTube Channel**](https://www.youtube.com/@nextupstudioyt)  
-- 📸 [**Instagram**](https://instagram.com/) *(add link)*  
-- 💬 [**Discord**](https://discord.com/) *(optional)*  
+- 📸 [**Instagram**](https://instagram.com/vanshu_ag_72) 
 
 ---
 
