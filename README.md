@@ -3,7 +3,7 @@
 Welcome to **Nextup Studio’s Minecraft Hub** 🎮  
 Here you can download **Techno Gamerz Minecraft World (.mcworld)**, explore **premium Bedrock addons**, try **stunning shaders**, and play with **patched/original versions of Minecraft 1.21.101**.  
 
-🚀 Live Website: [arwal72.github.io](https://arwal72.github.io/)
+🚀 Live Website: [shreyagarwal72.github.io](https://shretagarwal72.github.io/)
 
 ---
 
