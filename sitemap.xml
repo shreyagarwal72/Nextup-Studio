@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Homepage -->
   <url>
-    <loc>https://arwal72.github.io/</loc>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/</loc>
+    <lastmod>2025-09-08</lastmod>
     <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
   </url>
-  <!-- Minecraft Worlds -->
+
+  <!-- My World Page -->
   <url>
-    <loc>https://arwal72.github.io/myworld.html</loc>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/myworld.html</loc>
+    <lastmod>2025-09-08</lastmod>
     <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
-  <!-- Addons Download -->
+
+  <!-- Addons Page -->
   <url>
-    <loc>https://arwal72.github.io/addons.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/addons.html</loc>
+    <lastmod>2025-09-08</lastmod>
+    <priority>0.9</priority>
   </url>
-  <!-- Patched Versions -->
+
+  <!-- Patched Versions Page -->
   <url>
-    <loc>https://arwal72.github.io/patched.html</loc>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/patched.html</loc>
+    <lastmod>2025-09-08</lastmod>
     <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Minecraft 1.21.101 Download Page -->
+  <url>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/mc.html</loc>
+    <lastmod>2025-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Shaders Page -->
+  <url>
+    <loc>https://shreyagarwal72.github.io/Nextup-Studio/shader.html</loc>
+    <lastmod>2025-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
