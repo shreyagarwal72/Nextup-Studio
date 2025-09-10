@@ -21,5 +21,63 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+
+  "file_handlers": [
+    {
+      "action": "/",
+      "accept": {
+        "application/json": [".mcworld", ".mcpack"]
+      }
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+mcworld",
+      "url": "/?file=%s"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "iarc_rating_id": "e-1234567890",  // (Use real IARC rating if distributing as a game on stores)
+  "widgets": [
+    {
+      "name": "Your Widget",
+      "desc": "Sample Minecraft Widget",
+      "short_name": "NextupWidget",
+      "start_url": "/index.html",
+      "icons": [
+        {
+          "src": "images/logo.png",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "edge_side_panel": {
+    "default_path": "/sidepanel.html"
+  },
+  "display_override": ["standalone", "browser"],
+  "note_taking": {
+    "enabled": false
+  },
+  "scope_extensions": [
+    {
+      "origin": "https://arwal72.github.io"
+    }
   ]
 }
