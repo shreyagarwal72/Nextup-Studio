@@ -126,7 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 1900);
 });
 </script>
-<!-- PWA install code remains if you are using PWA features -->
+
+<!-- Service Worker Registration -->
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 
 </body>
 </html>
