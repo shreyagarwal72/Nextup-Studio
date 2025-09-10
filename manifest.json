@@ -1,11 +1,15 @@
 {
+  "id": "/nextup-minecraft-pwa",
   "name": "Nextup Studio",
   "short_name": "NextupMC",
   "description": "Download Minecraft Bedrock Worlds & Addons. Fast, Installable, and Offline-Ready.",
   "start_url": "index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#181818",
   "theme_color": "#2196f3",
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "images/logo.png",
