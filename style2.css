@@ -1,0 +1,98 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #0f2027, #2c5364);
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.85;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Site Buttons */
+.site-button {
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-button.new {
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+}
+
+.site-button.old {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+}
+
+.site-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .site-button {
+    width: 100%;
+    text-align: center;
+  }
+}
