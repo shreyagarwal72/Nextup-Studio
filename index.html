@@ -1,34 +1,115 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="2; url=https://minecraft-hub-xi.vercel.app/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #121212;
-        color: #00bcd4;
-        text-align: center;
-      }
-      .box {
-        padding: 20px 30px;
-        border: 2px solid #00bcd4;
-        border-radius: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="box">
-      <h2>Redirecting...</h2>
-      <p>You are being redirected to <br>
-      <a href="https://minecraft-hub-xi.vercel.app/" style="color:#00bcd4;">minecraft-hub-xi.vercel.app</a></p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minecraft Hub — Choose Edition</title>
+  <meta name="description" content="Choose between Minecraft Bedrock Edition and Minecraft Java Edition. Animated 3D landing page." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#071029;
+      --bg2:#071a2a;
+      --accent:#00e5b4;
+      --card-w: 760px;
+      font-family: 'Poppins',sans-serif;
+    }
+    html,body{height:100%;margin:0;}
+    body{
+      min-height:100%;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,180,0.06), transparent 6%),
+                  radial-gradient(900px 500px at 90% 90%, rgba(0,173,255,0.04), transparent 8%),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#e6f7f1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      padding:20px;
+    }
+    .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
+    .stars::before, .stars::after{
+      content:"";position:absolute;inset:0;
+      background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                       radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 100px 100px, 180px 180px;
+      opacity:0.6;
+      animation: drift 20s linear infinite;
+    }
+    .stars::after{opacity:0.35; transform:translateY(200px) scale(0.7); animation-duration:28s}
+    @keyframes drift{from{transform:translateY(0)} to{transform:translateY(-120px)}}
+    .container{position:relative; z-index:2; width:100%; max-width:1000px; display:flex; justify-content:center;}
+    .scene{width:100%; max-width:var(--card-w); perspective:1500px;}
+    .card{
+      position:relative; width:100%;
+      background:rgba(255,255,255,0.03);
+      border-radius:28px; padding:36px;
+      box-sizing:border-box;
+      transform-style:preserve-3d;
+      transition:transform 400ms;
+      box-shadow: 0 20px 60px rgba(3,8,20,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+    }
+    .header{display:flex; gap:16px; align-items:center;}
+    .logo{width:64px; height:64px; border-radius:14px; background:linear-gradient(135deg,#07c39b,#00bcd4);
+      display:flex; align-items:center; justify-content:center; font-weight:800; font-size:22px; color:#02121a;}
+    .title h1{margin:0;font-size:22px;font-weight:800;}
+    .title p{margin:2px 0 0 0;opacity:0.8;font-size:13px;}
+    .body{display:flex; gap:28px; align-items:center; margin-top:26px; flex-wrap:wrap; justify-content:center;}
+    .panel{
+      flex:1 1 300px; min-width:260px; max-width:360px;
+      background:rgba(255,255,255,0.05);
+      border-radius:18px; padding:20px;
+      box-sizing:border-box; border:1px solid rgba(255,255,255,0.08);
+      transition: transform .35s, box-shadow .35s;
+      cursor:pointer; position:relative;
+      text-align:center;
+    }
+    .panel:hover{ transform: translateY(-10px) scale(1.02); box-shadow: 0 30px 60px rgba(2,12,20,0.6);}
+    .panel .edition{font-weight:700; font-size:20px; margin-bottom:8px}
+    .panel .desc{font-size:14px; opacity:0.75; margin-bottom:14px}
+    .panel .cta{
+      display:inline-block; padding:12px 20px;
+      border-radius:12px; font-weight:700;
+      text-decoration:none; background:linear-gradient(90deg,var(--accent), #00bcd4);
+      color:#012; box-shadow:0 8px 24px rgba(0,188,212,0.3);
+    }
+    .panel.bedrock .logo-mini{width:48px;height:48px;margin:0 auto 12px; border-radius:10px;background:linear-gradient(135deg,#00e5b4,#00bcd4);
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#02121a;}
+    .panel.java .logo-mini{width:48px;height:48px;margin:0 auto 12px; border-radius:10px;background:linear-gradient(135deg,#ffd26b,#ff8a4b);
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#1b0b00;}
+    @media (max-width:560px){.body{flex-direction:column}.panel{width:100%;max-width:100%}}
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="container">
+    <div class="scene">
+      <div class="card">
+        <div class="header">
+          <div class="logo">MH</div>
+          <div class="title">
+            <h1>Minecraft Hub</h1>
+            <p>Choose your edition — clean, fast, and ready.</p>
+          </div>
+        </div>
+        <div class="body">
+          <article class="panel bedrock">
+            <div class="logo-mini">B</div>
+            <div class="edition">Bedrock Edition</div>
+            <div class="desc">Optimized for cross-platform play.</div>
+            <a class="cta" href="https://minecraft-hub-xi.vercel.app/" target="_blank">Enter Bedrock</a>
+          </article>
+          <article class="panel java">
+            <div class="logo-mini">J</div>
+            <div class="edition">Java Edition</div>
+            <div class="desc">Classic PC experience with mods.</div>
+            <a class="cta" href="https://minecraft-hub-op.vercel.app/" target="_blank">Enter Java</a>
+          </article>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
