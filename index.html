@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft Hub</title>
+  <title>Minecraft Hub - Bedrock & Java Edition</title>
+  <meta name="description" content="Choose between Minecraft Bedrock Edition and Minecraft Java Edition. Enter Minecraft Hub to explore both versions with professional design and smooth animations.">
+  <meta name="keywords" content="Minecraft Hub, Minecraft Bedrock Edition, Minecraft Java Edition, Play Minecraft Online, Minecraft Sites">
+  <meta name="author" content="Nextup Studio">
+
+  <!-- Open Graph (SEO + Social) -->
+  <meta property="og:title" content="Minecraft Hub - Bedrock & Java Edition">
+  <meta property="og:description" content="Choose between Minecraft Bedrock and Java Edition with a professional 3D animated landing page.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://minecraft-hub-xi.vercel.app/">
+  <meta property="og:image" content="https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/28/Minecraft_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/28/Minecraft_logo.png" type="image/png">
+
   <style>
     /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * {margin:0; padding:0; box-sizing:border-box;}
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +29,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0f2027);
+      background: radial-gradient(circle at top, #0f2027, #0a0a0a);
       overflow: hidden;
       color: #fff;
     }
@@ -28,21 +39,17 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       z-index: 0;
       overflow: hidden;
     }
-
     .particle {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background: rgba(0, 188, 212, 0.8);
+      width: 5px; height: 5px;
+      background: rgba(0, 188, 212, 0.7);
       border-radius: 50%;
-      animation: float 12s infinite ease-in-out;
+      animation: float 10s infinite ease-in-out;
     }
-
     @keyframes float {
       0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
       50% { opacity: 1; }
@@ -56,11 +63,12 @@
       text-align: center;
       max-width: 800px;
       width: 90%;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
+      font-size: 2.8rem;
+      margin-bottom: 35px;
       background: linear-gradient(90deg, #00c6ff, #0072ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -86,24 +94,21 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       perspective: 1000px;
     }
-
     .card:hover {
-      transform: translateY(-15px) scale(1.05) rotateX(10deg);
+      transform: translateY(-12px) scale(1.05) rotateX(8deg);
       box-shadow: 0 15px 40px rgba(0, 188, 212, 0.3);
     }
-
     .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
       color: #00bcd4;
     }
-
     .card p {
       font-size: 0.95rem;
       color: #ccc;
       margin-bottom: 20px;
+      line-height: 1.5;
     }
-
     .card a {
       display: inline-block;
       padding: 12px 24px;
@@ -114,23 +119,21 @@
       font-weight: bold;
       transition: background 0.3s ease, transform 0.3s ease;
     }
-
     .card a:hover {
       transform: scale(1.08);
       background: linear-gradient(90deg, #0072ff, #00c6ff);
     }
 
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .options {
-        gap: 20px;
-      }
-      .card {
-        width: 90%;
-        padding: 30px 20px;
-      }
+      h1 {font-size: 2rem;}
+      .options {gap: 20px;}
+      .card {width: 90%; padding: 30px 20px;}
     }
   </style>
 </head>
@@ -151,15 +154,18 @@
     <div class="options">
       <div class="card">
         <h2>Bedrock Edition</h2>
-        <p>Play the cross-platform Minecraft experience.</p>
+        <p>Play the cross-platform Minecraft experience with friends across devices.</p>
         <a href="https://minecraft-hub-xi.vercel.app/">Enter</a>
       </div>
       <div class="card">
         <h2>Java Edition</h2>
-        <p>Explore the classic PC version of Minecraft.</p>
+        <p>Enjoy the classic PC Minecraft experience with mods and servers.</p>
         <a href="https://minecraft-hub-op.vercel.app/">Enter</a>
       </div>
     </div>
+    <footer>
+      © 2025 Nextup Studio · All Rights Reserved
+    </footer>
   </div>
 </body>
 </html>
