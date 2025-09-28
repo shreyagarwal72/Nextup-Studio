@@ -1,149 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minecraft Hub — Choose Edition</title>
-  <meta name="description" content="Choose between Minecraft Bedrock Edition and Minecraft Java Edition. Professional 3D animated landing page." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Hub</title>
   <style>
-    :root {
-      --bg-dark: #0a0f1c;
-      --bg-light: #141b2d;
-      --accent-teal: #00e5b4;
-      --accent-orange: #ff7b54;
-      --text-light: #f2f6fa;
-      --glass: rgba(255, 255, 255, 0.06);
-      --radius: 20px;
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
-      color: var(--text-light);
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0f2027);
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Background particles */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
       overflow: hidden;
     }
 
-    /* animated gradient overlay */
-    body::before {
-      content: "";
+    .particle {
       position: absolute;
-      inset: 0;
-      background: radial-gradient(800px circle at 20% 30%, rgba(0,229,180,0.08), transparent),
-                  radial-gradient(900px circle at 80% 70%, rgba(255,123,84,0.08), transparent);
-      animation: moveGlow 18s ease-in-out infinite alternate;
-    }
-    @keyframes moveGlow {
-      from { transform: translateY(0); }
-      to { transform: translateY(-40px); }
+      width: 6px;
+      height: 6px;
+      background: rgba(0, 188, 212, 0.8);
+      border-radius: 50%;
+      animation: float 12s infinite ease-in-out;
     }
 
-    .card {
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    /* Container */
+    .container {
       position: relative;
-      background: var(--glass);
-      border-radius: var(--radius);
-      padding: 40px;
-      width: 90%;
-      max-width: 900px;
+      z-index: 1;
       text-align: center;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+      max-width: 800px;
+      width: 90%;
     }
 
     h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    p.subtitle {
-      font-size: 1rem;
-      opacity: 0.7;
+      font-size: 2.5rem;
       margin-bottom: 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
 
     .options {
       display: flex;
-      gap: 30px;
       justify-content: center;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
-    .option {
-      flex: 1 1 300px;
-      padding: 30px 20px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 280px;
+      backdrop-filter: blur(15px);
       cursor: pointer;
-    }
-    .option:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
-    }
-    .option h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .option p {
-      font-size: 0.95rem;
-      opacity: 0.75;
-      margin-bottom: 20px;
-    }
-    .option a {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-    .option.bedrock a {
-      background: linear-gradient(90deg, var(--accent-teal), #00bcd4);
-      box-shadow: 0 10px 25px rgba(0,229,180,0.3);
-    }
-    .option.java a {
-      background: linear-gradient(90deg, var(--accent-orange), #ffb86c);
-      box-shadow: 0 10px 25px rgba(255,123,84,0.3);
-    }
-    .option a:hover {
-      filter: brightness(1.1);
-      transform: scale(1.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 1.5rem; }
-      .card { padding: 25px; }
-      .option { padding: 20px; }
+    .card:hover {
+      transform: translateY(-15px) scale(1.05) rotateX(10deg);
+      box-shadow: 0 15px 40px rgba(0, 188, 212, 0.3);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #00bcd4;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .card a:hover {
+      transform: scale(1.08);
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .options {
+        gap: 20px;
+      }
+      .card {
+        width: 90%;
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <!-- Floating particles -->
+  <div class="particles">
+    <div class="particle" style="left:10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left:25%; animation-delay: 2s;"></div>
+    <div class="particle" style="left:40%; animation-delay: 4s;"></div>
+    <div class="particle" style="left:60%; animation-delay: 1s;"></div>
+    <div class="particle" style="left:75%; animation-delay: 3s;"></div>
+    <div class="particle" style="left:90%; animation-delay: 5s;"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
     <h1>Minecraft Hub</h1>
-    <p class="subtitle">Choose your edition to continue</p>
     <div class="options">
-      <div class="option bedrock">
+      <div class="card">
         <h2>Bedrock Edition</h2>
-        <p>Play cross-platform with friends on console, mobile, and PC.</p>
-        <a href="https://minecraft-hub-xi.vercel.app/" target="_blank">Enter Bedrock</a>
+        <p>Play the cross-platform Minecraft experience.</p>
+        <a href="https://minecraft-hub-xi.vercel.app/">Enter</a>
       </div>
-      <div class="option java">
+      <div class="card">
         <h2>Java Edition</h2>
-        <p>Classic PC edition with mods and advanced features.</p>
-        <a href="https://minecraft-hub-op.vercel.app/" target="_blank">Enter Java</a>
+        <p>Explore the classic PC version of Minecraft.</p>
+        <a href="https://minecraft-hub-op.vercel.app/">Enter</a>
       </div>
     </div>
   </div>
